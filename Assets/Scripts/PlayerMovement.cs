@@ -9,18 +9,57 @@ public class PlayerMovement : MonoBehaviour
     //Movement speed of the player
     [SerializeField]
     private float movementValue = 5f;
+
+    // --- Dash ----
+    //Dash speed of the player
+    [SerializeField]
+    private float dashSpeed = 30f;
+    //Duration of the dash
+    [SerializeField]
+    private float dashDuration = 0.1f;
+    //Cooldown of the dash
+    [SerializeField]
+    private float dashCooldown = 1f;
+    //Timer for dash duration
+    private float dashTimer = 0f;
+    //Timer for dash cooldown
+    private float dashCooldownTimer = 0f;
+    //Flag for dashing
+    private bool isDashing = false;
+    // Flag to indicate if the player has already dashed
+    private bool hasDashed = false;
+
+    // --- Trap ----
+     //Trap prefab
+    [SerializeField]
+    private GameObject trapPrefab;
+    [SerializeField]
+    private int maxNumberOfTraps = 3;
+    [SerializeField]
+    private int numberOfTraps;
+
+
     void Start()
     {
         //Store the rigid component at the start of the game
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+     // Update is called once per frame
     void Update()
     {
         //Move function
         Move();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (numberOfTraps < maxNumberOfTraps)
+            {
+                PlaceTrap();
+            }  
+        }
     }
+
     /**
      * Function that make the character from input
      */
@@ -29,11 +68,66 @@ public class PlayerMovement : MonoBehaviour
         //Get the horizontal and vertical input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
         //Create a new vector of those input
-        Vector2 vec= new Vector2(horizontal, vertical);
-        //Normalize the vecto
-        vec.Normalize();
-        //Affect the movement to the velocity of the rigidbody to make it move
-        rigidbody2d.velocity = vec * movementValue;
+        Vector2 movement = new Vector2(horizontal, vertical);
+
+        //Check if dashing
+        if (isDashing)
+        {
+            rigidbody2d.velocity = movement * dashSpeed;
+            dashTimer -= Time.deltaTime;
+
+            if (dashTimer <= 0)
+            {
+                isDashing = false;
+                hasDashed = true; // Set the flag to true when the player has dashed
+                dashCooldownTimer = dashCooldown;
+            }
+        }
+        else
+        {
+            //Affect the movement to the velocity of the rigidbody to make it move
+            rigidbody2d.velocity = movement * movementValue;
+
+            // Stop the player when no input is detected
+            if (movement.magnitude < 0.1f)
+            {
+                rigidbody2d.velocity = Vector2.zero;
+            }
+        }
+
+        //Rotate the player based on the movement direction
+        if (movement != Vector2.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, movement);
+            movement = movement.normalized; // Store the dash direction
+        }
+
+        //Check if dash can be used
+        if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTimer <= 0 && !hasDashed)
+        {
+            isDashing = true;
+            dashTimer = dashDuration;
+        }
+
+        //Update dash cooldown timer
+        if (dashCooldownTimer > 0)
+        {
+            dashCooldownTimer -= Time.deltaTime;
+        }
+        else
+        {
+            hasDashed = false; // Reset the flag when the cooldown is over
+        }
+
     }
+
+    void PlaceTrap()
+    {
+        numberOfTraps += 1;
+        Vector3 trapPosition = transform.position;
+        GameObject trap = Instantiate(trapPrefab, trapPosition, Quaternion.identity);
+    }
+
 }
