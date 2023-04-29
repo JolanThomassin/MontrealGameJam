@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4579501217481835203}
   - component: {fileID: 4579501217481835228}
-  - component: {fileID: 5605910249066407376}
   - component: {fileID: 7963722576590274306}
   - component: {fileID: -6510644940447039832}
+  - component: {fileID: 5605910249066407376}
+  - component: {fileID: 3692315110903813493}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1911285349
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 0.037646834, g: 0.077343635, b: 0.8867924, a: 1}
@@ -85,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5605910249066407376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4579501217481835229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358608170b763d54c911ae2a10d2face, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &7963722576590274306
 Rigidbody2D:
   serializedVersion: 4
@@ -112,12 +101,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &-6510644940447039832
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +123,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &5605910249066407376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579501217481835229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358608170b763d54c911ae2a10d2face, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3692315110903813493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579501217481835229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea2f144b590c4c49a3911e7b6ede705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 872165700732480300, guid: 61e044b99c9494a3180515255de1739e, type: 3}
+  player: {fileID: 4579501217481835203}
+  cooldown: 1
+  timer: 0.5
+  bulletSpeed: 3

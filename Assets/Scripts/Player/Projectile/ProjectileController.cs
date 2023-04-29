@@ -5,14 +5,15 @@ namespace Assets.Prefabs.Projectile
 {
     public class ProjectileController : MonoBehaviour
     {
-
-        public Player_Bullet1 bullet;
+        public Player_Bullet bullet;
         public Transform player;
         public float cooldown = 1f;
         public float timer = 0.5f;
-
+        
         Vector3 rotation = new Vector3(0,0,0);
 
+        [SerializeField]
+        private float bulletSpeed = 2f;
         // Use this for initialization
 
         // Update is called once per frame
@@ -24,23 +25,23 @@ namespace Assets.Prefabs.Projectile
             float vertical = Input.GetAxis("Vertical");
             if (vertical > 0)
             {
-                bullet.setDirection(new Vector3(0, 1, 0));
+                bullet.setDirection(new Vector3(0, bulletSpeed, 0));
                 rotation = new Vector3(0, 0, 90);
               
             }
             if (vertical < 0)
             {
-                bullet.setDirection(new Vector3(0, -1, 0));
+                bullet.setDirection(new Vector3(0, -bulletSpeed, 0));
                 rotation = new Vector3(0, 0, -90);
             }
             if (horizontal > 0)
             {
-                bullet.setDirection(new Vector3(1, 0, 0));
+                bullet.setDirection(new Vector3(bulletSpeed, 0, 0));
                 rotation = new Vector3(0, 0, 0);
             }
             if (horizontal < 0)
             {
-                bullet.setDirection(new Vector3(-1, 0, 0));
+                bullet.setDirection(new Vector3(-bulletSpeed, 0, 0));
                 rotation = new Vector3(0, 0, 180);
             }
 

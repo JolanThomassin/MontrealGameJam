@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Bullet1 : Bullet
+public class Player_Bullet : Bullet
 {
     public float maxDistance;  // max distance of this bullet can reach
     public bool moveOnStart = false;

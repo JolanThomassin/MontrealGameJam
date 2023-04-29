@@ -123,30 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &146207224 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4579501217481835229, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
-  m_PrefabInstance: {fileID: 1315259994}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &146207225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146207224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea2f144b590c4c49a3911e7b6ede705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 872165700732480300, guid: 61e044b99c9494a3180515255de1739e, type: 3}
-  player: {fileID: 146207229}
---- !u!4 &146207229 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4579501217481835203, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
-  m_PrefabInstance: {fileID: 1315259994}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &333151692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +4632,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4579501217481835203, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579501217481835203, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579501217481835203, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579501217481835203, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4699,17 +4687,9 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4579501217481835228, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1911285349
-      objectReference: {fileID: 0}
     - target: {fileID: 4579501217481835229, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963722576590274306, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
