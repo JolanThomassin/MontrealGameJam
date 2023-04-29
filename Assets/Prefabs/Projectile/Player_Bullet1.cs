@@ -46,6 +46,8 @@ public class Player_Bullet1 : Bullet
         //    }
         //    stop();  // stop the motion of bullet when hits a monster
         //}
+
+        stop();
     }
 
 
