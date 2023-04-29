@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerInfectionZone : MonoBehaviour
 {
-    private float radius = 2.5f;
+    public float radius = 2.5f;
     private Vector3 position;
-    private GameObject doctor;
+    public GameObject doctor;
     [SerializeField] private LayerMask doctorMask;
+
+    public int infectionDmg = 1;
+    public int infectionDuration = 5;
+    public int infectionTickRate = 1;
 
     void Update()
     {
@@ -22,6 +26,12 @@ public class PlayerInfectionZone : MonoBehaviour
         {
             //TODO - Infect the doctor every tick
             Debug.Log("Doctor infected");
+
+            var doctorHp = doctor.GetComponent<DoctorHP>();
+            if (doctorHp && !doctorHp.isInfected)
+            {
+                doctorHp.GetInfected(infectionDmg, infectionDuration, infectionTickRate);
+            }
         }
     }
 }

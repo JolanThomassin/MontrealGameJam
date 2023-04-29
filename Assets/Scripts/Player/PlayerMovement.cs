@@ -29,11 +29,14 @@ public class PlayerMovement : MonoBehaviour
     // Flag to indicate if the player has already dashed
     private bool hasDashed = false;
 
+    public Animator animator;
 
     void Start()
     {
         //Store the rigid component at the start of the game
         rigidbody2d = GetComponent<Rigidbody2D>();
+        if (!animator)
+            animator = GetComponent<Animator>();
     }
 
      // Update is called once per frame
@@ -55,7 +58,36 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         //Create a new vector of those input
         Vector2 movement = new Vector2(horizontal, vertical);
-
+        if (horizontal < 0)
+        {
+            animator.SetBool("WalkLeft", true);
+            animator.SetBool("WalkRight", false);
+        }
+        else if (horizontal > 0)
+        {
+            animator.SetBool("WalkLeft", false);
+            animator.SetBool("WalkRight", true);
+        }
+        else
+        {
+            animator.SetBool("WalkLeft", false);
+            animator.SetBool("WalkRight", false);
+        }
+        if (vertical < 0)
+        {
+            animator.SetBool("WalkDown", true);
+            animator.SetBool("WalkUp", false);
+        }
+        else if (vertical > 0)
+        {
+            animator.SetBool("WalkDown", false);
+            animator.SetBool("WalkUp", true);
+        }
+        else
+        {
+            animator.SetBool("WalkDown", false);
+            animator.SetBool("WalkUp", false);
+        }
         //Check if dashing
         if (isDashing)
         {
@@ -86,6 +118,8 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, movement);
             movement = movement.normalized; // Store the dash direction
+            // counter the child transform rotation
+            transform.GetChild(0).localRotation = Quaternion.Euler(-transform.rotation.eulerAngles);
         }
 
         //Check if dash can be used
