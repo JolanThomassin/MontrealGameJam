@@ -200,7 +200,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
-=======
 --- !u!1 &333151692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,7 +4614,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
->>>>>>> origin/ObjectiveSettings
 --- !u!1 &1196639654
 GameObject:
   m_ObjectHideFlags: 0
@@ -4652,11 +4650,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-<<<<<<< HEAD
-  m_BackGroundColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 0}
-=======
   m_BackGroundColor: {r: 0.9268542, g: 0.9811321, b: 0.9015308, a: 0}
->>>>>>> origin/ObjectiveSettings
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4672,11 +4666,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-<<<<<<< HEAD
-  orthographic: 0
-=======
   orthographic: 1
->>>>>>> origin/ObjectiveSettings
   orthographic size: 12.624943
   m_Depth: -1
   m_CullingMask:
@@ -4700,21 +4690,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196639654}
-<<<<<<< HEAD
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.842742, y: 6.24877, z: -40}
-  m_LocalScale: {x: 4, y: 4, z: 4}
-=======
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> origin/ObjectiveSettings
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1811465839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,4 +4742,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> origin/ObjectiveSettings
