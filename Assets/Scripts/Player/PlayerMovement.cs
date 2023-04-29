@@ -118,6 +118,8 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, movement);
             movement = movement.normalized; // Store the dash direction
+            // counter the child transform rotation
+            transform.GetChild(0).localRotation = Quaternion.Euler(-transform.rotation.eulerAngles);
         }
 
         //Check if dash can be used
