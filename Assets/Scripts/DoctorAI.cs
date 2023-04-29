@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class DoctorAI : MonoBehaviour
 {
@@ -17,64 +18,63 @@ public class DoctorAI : MonoBehaviour
     Vector2 movementVector = Vector2.zero;
 
     public Rigidbody2D[] objectives;
-    float testX = 3.5f;
-    float testY = -2.69f;
-
-    //public TilemapCollider2D walls;
+    Rigidbody2D objectiveMinimum;
 
     //private Animator animator;
     //private SpriteRenderer SpriteRenderer;
 
     // Start is called before the first frame update
+    
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+
+        objectiveMinimum = objectives[0];
+        foreach (Rigidbody2D objective in objectives) {
+            
+            if(Distance(objectiveMinimum.position) > Distance(objective.position)) {
+                objectiveMinimum = objective;
+            }
+        }
+
+        Decision();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timerDecision%1500 == 0) {
-            Decision();
-            /*
-            chosenDirectionX = Random.Range(-1,2);
-            chosenDirectionY = Random.Range(-1,2);
-            while(chosenDirectionX == 0 && chosenDirectionY == 0) {
-                chosenDirectionX = Random.Range(-1,2);
-                chosenDirectionY = Random.Range(-1,2);
-            }*/
-        }
-        
+
+        Decision();
+
         float memoPosX = movementVector.x;
         float memoPosY = movementVector.y;
 
         movementVector.x = chosenDirectionX * Time.deltaTime * this.speed;
         movementVector.y = chosenDirectionY * Time.deltaTime * this.speed;
 
-        
-
         movementVector.Normalize();
 
-        if(memoPosX == movementVector.x || memoPosY == movementVector.y || (memoPosX == movementVector.x && memoPosY == movementVector.y)) {
-            timerDecision = -1;
-        }
         rigidbody.velocity = movementVector * this.speed;
-
-        timerDecision++;
+        
+        
     }
 
     void Decision() {
-        if(testX > rigidbody.position.x) {
-            chosenDirectionX = 1;
-        }else if(testX < rigidbody.position.x) {
-            chosenDirectionX = -1;
-        }
+            if(objectiveMinimum.position.x >= rigidbody.position.x) {
+                chosenDirectionX = 1;
+            }else if(objectiveMinimum.position.x  < rigidbody.position.x) {
+                chosenDirectionX = -1;
+            }
 
-        if(testY > rigidbody.position.y) {
-            chosenDirectionY = 1;
-        }else if(testY < rigidbody.position.y) {
-            chosenDirectionY = -1;
-        }
+            if(objectiveMinimum.position.y  >= rigidbody.position.y) {
+                chosenDirectionY = 1;
+            }else if(objectiveMinimum.position.y  < rigidbody.position.y) {
+                chosenDirectionY = -1;
+            }
+    }
+
+    float Distance(Vector2 point) {
+        return Mathf.Sqrt(Mathf.Pow(rigidbody.position.x-point.x,2) + Mathf.Pow(rigidbody.position.y-point.y,2));
     }
 }
