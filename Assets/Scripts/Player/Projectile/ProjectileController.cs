@@ -20,6 +20,8 @@ namespace Assets.Prefabs.Projectile
         void Update()
         {
             timer+=Time.deltaTime;
+            if (timer > 1)
+                timer = 1.1f;
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");

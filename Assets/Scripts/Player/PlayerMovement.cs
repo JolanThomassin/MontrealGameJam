@@ -29,15 +29,6 @@ public class PlayerMovement : MonoBehaviour
     // Flag to indicate if the player has already dashed
     private bool hasDashed = false;
 
-    // --- Trap ----
-     //Trap prefab
-    [SerializeField]
-    private GameObject trapPrefab;
-    [SerializeField]
-    private int maxNumberOfTraps = 3;
-    [SerializeField]
-    private int numberOfTraps;
-
 
     void Start()
     {
@@ -51,13 +42,7 @@ public class PlayerMovement : MonoBehaviour
         //Move function
         Move();
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (numberOfTraps < maxNumberOfTraps)
-            {
-                PlaceTrap();
-            }  
-        }
+        
     }
 
     /**
@@ -104,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Check if dash can be used
-        if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTimer <= 0 && !hasDashed)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldownTimer <= 0 && !hasDashed)
         {
             isDashing = true;
             dashTimer = dashDuration;
@@ -122,13 +107,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 vec= new Vector2(horizontal, vertical);
         rigidbody2d.velocity = vec * movementValue;
-    }
-
-    void PlaceTrap()
-    {
-        numberOfTraps += 1;
-        Vector3 trapPosition = transform.position;
-        GameObject trap = Instantiate(trapPrefab, trapPosition, Quaternion.identity);
     }
 
 }

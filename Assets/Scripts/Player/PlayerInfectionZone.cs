@@ -9,12 +9,6 @@ public class PlayerInfectionZone : MonoBehaviour
     private GameObject doctor;
     [SerializeField] private LayerMask doctorMask;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Infect();       
