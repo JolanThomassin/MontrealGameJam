@@ -58,6 +58,10 @@ public class Player_Bullet1 : Bullet
         //}
         //if (collision.gameObject.tag != "Player")
         //    stop();
+        if (collision.gameObject.name == "TilemapWall")
+        {
+            stop();
+        }
     }
 
 

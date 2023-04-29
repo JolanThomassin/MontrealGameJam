@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2259280095
+    locked: 0
+  - name: Character
+    uniqueID: 1911285349
     locked: 0
   - name: Wall
     uniqueID: 679541231

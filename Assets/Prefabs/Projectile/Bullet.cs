@@ -28,12 +28,6 @@ public abstract class Bullet : Attack
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     protected void Move(Vector3 currentPosition, Vector3 direction, float maxRange)
     {
