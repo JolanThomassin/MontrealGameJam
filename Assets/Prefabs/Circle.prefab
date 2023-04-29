@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3033086669448068436}
   - component: {fileID: 2549369500463632831}
   - component: {fileID: 8501465050762541913}
-  - component: {fileID: 7109468586443899243}
+  - component: {fileID: 6775680913954311788}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Villager
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -120,8 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PV: 500
   plegued: 0
+  dead: 0
+  reanimation: 0
   mainCamera: {fileID: 8548740069639779292, guid: 8f2ce97a98d79fc4f911c04cbe7a9615, type: 3}
---- !u!58 &7109468586443899243
+--- !u!58 &6775680913954311788
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,6 +136,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0085865}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2338209
+  m_Radius: 0.49999997

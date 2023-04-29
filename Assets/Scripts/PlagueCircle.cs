@@ -59,6 +59,17 @@ public class PlagueCircle : MonoBehaviour
         }
         if (other.gameObject.tag == "Villager") {
             other.gameObject.GetComponent<VillagerAI>().plegued = true;
+            if(other.gameObject.transform.position.x >= transform.position.x) {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionX = 1;
+                }else {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionX = -1;
+                }
+
+                if(other.gameObject.transform.position.y >= transform.position.y) {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionY = 1;
+                }else {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionY = -1;
+                }
         }
         
     }
