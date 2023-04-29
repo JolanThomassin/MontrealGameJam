@@ -18,6 +18,7 @@ public class TilePainter : MonoBehaviour
         Clear();
         paintPath(level.getPathPosition());
         paintWall(level.getWallPosition());
+        paintObstacle(level.getObstaclePosition());
     }
 
     void paintPath(HashSet<Vector2Int> pathPosition)
@@ -31,6 +32,15 @@ public class TilePainter : MonoBehaviour
     void paintWall(HashSet<Vector2Int> wallPosition)
     {
         foreach (var position in wallPosition)
+        {
+            var paintPosition = map.WorldToCell((Vector3Int)position);
+            map.SetTile(paintPosition, wallTile);
+        }
+    }
+
+    void paintObstacle(HashSet<Vector2Int> obstaclePosition)
+    {
+        foreach (var position in obstaclePosition)
         {
             var paintPosition = map.WorldToCell((Vector3Int)position);
             map.SetTile(paintPosition, wallTile);
