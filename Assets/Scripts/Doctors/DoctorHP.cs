@@ -14,6 +14,8 @@ public class DoctorHP : MonoBehaviour
 
     Rigidbody2D rb;
 
+    Text HPText;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
