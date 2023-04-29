@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class DoctorAI : MonoBehaviour
 {
 
-    private float speed = 5f;
+    private float speed = 10f;
 
     //-1 = Gauche, 0 = Bouge pas, 1 = Droite
     private int chosenDirectionX;
@@ -16,38 +17,64 @@ public class DoctorAI : MonoBehaviour
     private Rigidbody2D rigidbody;
     Vector2 movementVector = Vector2.zero;
 
+    public Rigidbody2D[] objectives;
+    Rigidbody2D objectiveMinimum;
+
     //private Animator animator;
     //private SpriteRenderer SpriteRenderer;
 
     // Start is called before the first frame update
+    
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        chosenDirectionX = Random.Range(-1,2);
-        chosenDirectionY = Random.Range(-1,2);
+
+        objectiveMinimum = objectives[0];
+        foreach (Rigidbody2D objective in objectives) {
+            
+            if(Distance(objectiveMinimum.position) > Distance(objective.position)) {
+                objectiveMinimum = objective;
+            }
+        }
+
+        Decision();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timerDecision%3000 == 0) {
-            
-            chosenDirectionX = Random.Range(-1,2);
-            chosenDirectionY = Random.Range(-1,2);
-            while(chosenDirectionX == 0 && chosenDirectionY == 0) {
-                chosenDirectionX = Random.Range(-1,2);
-                chosenDirectionY = Random.Range(-1,2);
-            }
-        }
-        
+
+        Decision();
+
+        float memoPosX = movementVector.x;
+        float memoPosY = movementVector.y;
 
         movementVector.x = chosenDirectionX * Time.deltaTime * this.speed;
         movementVector.y = chosenDirectionY * Time.deltaTime * this.speed;
 
-        Debug.Log( chosenDirectionX);
-        rigidbody.MovePosition(rigidbody.position + movementVector);
+        movementVector.Normalize();
 
-        timerDecision++;
+        rigidbody.velocity = movementVector * this.speed;
+        
+        
+    }
+
+    void Decision() {
+            if(objectiveMinimum.position.x >= rigidbody.position.x) {
+                chosenDirectionX = 1;
+            }else if(objectiveMinimum.position.x  < rigidbody.position.x) {
+                chosenDirectionX = -1;
+            }
+
+            if(objectiveMinimum.position.y  >= rigidbody.position.y) {
+                chosenDirectionY = 1;
+            }else if(objectiveMinimum.position.y  < rigidbody.position.y) {
+                chosenDirectionY = -1;
+            }
+    }
+
+    float Distance(Vector2 point) {
+        return Mathf.Sqrt(Mathf.Pow(rigidbody.position.x-point.x,2) + Mathf.Pow(rigidbody.position.y-point.y,2));
     }
 }
