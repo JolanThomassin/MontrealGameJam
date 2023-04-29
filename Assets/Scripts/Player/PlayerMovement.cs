@@ -29,11 +29,15 @@ public class PlayerMovement : MonoBehaviour
     // Flag to indicate if the player has already dashed
     private bool hasDashed = false;
 
+    private Quaternion originalRotation;
+
 
     void Start()
     {
         //Store the rigid component at the start of the game
         rigidbody2d = GetComponent<Rigidbody2D>();
+
+        originalRotation = transform.rotation;
     }
 
      // Update is called once per frame
@@ -42,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
         //Move function
         Move();
 
-        
+        transform.rotation = originalRotation;
+
     }
 
     /**
@@ -53,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         //Get the horizontal and vertical input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
         //Create a new vector of those input
         Vector2 movement = new Vector2(horizontal, vertical);
 
@@ -105,8 +111,6 @@ public class PlayerMovement : MonoBehaviour
             hasDashed = false; // Reset the flag when the cooldown is over
         }
 
-        Vector2 vec= new Vector2(horizontal, vertical);
-        rigidbody2d.velocity = vec * movementValue;
     }
 
 }
