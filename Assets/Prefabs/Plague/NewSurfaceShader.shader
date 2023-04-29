@@ -64,7 +64,7 @@ Shader "Tutorial/007_Sprite"{
 				float2x2 rotationMatrix = { cos(rotation), -sin(rotation), sin(rotation), cos(rotation) };
 				col.a *= tex2D(_NoiseTex, mul(rotationMatrix, i.noise_uv)).x;
 				float distance = length(i.noise_uv - float2(0.5, 0.5)); // Calculate distance from center
-				float alpha = distance > 0.5 ? 0.0 : 1.0; // Set alpha based on distance
+				float alpha = distance > 0.5 ? 0 : (0.5-distance); // Set alpha based on distance
 				col.a *= alpha;
 				return col;
 			}
