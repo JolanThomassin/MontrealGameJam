@@ -25,6 +25,7 @@ namespace Assets.Prefabs.Projectile
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
+            Vector2 movement = new Vector2(horizontal, vertical);
             if (vertical > 0)
             {
                 bullet.setDirection(new Vector3(0, bulletSpeed, 0));
@@ -52,7 +53,9 @@ namespace Assets.Prefabs.Projectile
                 timer = 0f;
                 var bullet1 = Instantiate(bullet, player.transform.position, player.transform.rotation);
                 bullet1.transform.rotation = Quaternion.Euler(rotation);
-                bullet1.setDirection(bullet.direction);
+                // bullet1.setDirection(bullet.direction);
+               var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(Quaternion.LookRotation(Vector3.forward, movement))* player.transform.up;
+                bullet1.setDirection(dir);
             }
         }
     }

@@ -123,6 +123,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &247410000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2491594481325821317, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_Name
+      value: doctorInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491594481325821317, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_TagString
+      value: Doctor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437835307560164735, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493701065197605660, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
 --- !u!1 &333151692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,6 +4685,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1537605554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2491594481325821317, guid: f42235cff45a52c46a67388381bb7e07, type: 3}
+  m_PrefabInstance: {fileID: 247410000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1537605555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537605554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6378242959080c44ca7e07abfe038820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  isInfected: 0
+  isTrapped: 0
+  isDied: 0
 --- !u!1001 &1638382780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4627,6 +4713,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8189705035503481932, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
+      propertyPath: doctor
+      value: 
+      objectReference: {fileID: 1537605554}
     - target: {fileID: 3684546703064435708, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
       propertyPath: m_RootOrder
       value: 2
