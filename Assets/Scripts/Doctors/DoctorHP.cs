@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoctorHP : MonoBehaviour
 {
@@ -14,17 +15,12 @@ public class DoctorHP : MonoBehaviour
 
     Rigidbody2D rb;
 
-    Text HPText;
+    public Text HPText;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-            
+        HPText.text = hp.ToString();
     }
 
     public void GetInfected(int dmgOverTime = 1, float duration = 5, float tickRate = 1)
@@ -42,6 +38,7 @@ public class DoctorHP : MonoBehaviour
             StopAllCoroutines();
             Destroy(gameObject);
         }
+        HPText.text = hp.ToString();
     }
 
     IEnumerator DoTCoroutine(int dmgOverTime, float duration, float tickRate)

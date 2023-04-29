@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInfectionZone : MonoBehaviour
 {
-    private float radius = 2.5f;
+    public float radius = 2.5f;
     private Vector3 position;
     public GameObject doctor;
     [SerializeField] private LayerMask doctorMask;
