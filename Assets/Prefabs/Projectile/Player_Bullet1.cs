@@ -19,6 +19,11 @@ public class Player_Bullet1 : Bullet
             Move(this.transform.position, direction, maxDistance);  // start moving this bullet (coroutine)
     }
 
+    public void Shoot()
+    {
+        Move(this.transform.position, direction, maxDistance);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -28,6 +33,11 @@ public class Player_Bullet1 : Bullet
             transform.position = initialPos;
             Move(this.transform.position, direction, maxDistance);
         }
+    }
+
+    private void Update()
+    {
+
     }
 
     /// <summary>
@@ -46,8 +56,8 @@ public class Player_Bullet1 : Bullet
         //    }
         //    stop();  // stop the motion of bullet when hits a monster
         //}
-
-        stop();
+        //if (collision.gameObject.tag != "Player")
+        //    stop();
     }
 
 

@@ -10,8 +10,7 @@ public abstract class Attack : MonoBehaviour
     public int speed;
     public Animator animator;
 
-    [SerializeField]
-    protected Vector3 direction;  // the direction of this attack
+    public Vector3 direction;  // the direction of this attack
 
     
     /// <summary>

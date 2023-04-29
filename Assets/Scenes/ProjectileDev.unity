@@ -240,6 +240,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 872165700732480300, guid: 61e044b99c9494a3180515255de1739e, type: 3}
+      propertyPath: test
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872165700732480300, guid: 61e044b99c9494a3180515255de1739e, type: 3}
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
@@ -250,6 +254,14 @@ PrefabInstance:
     - target: {fileID: 872165700732480300, guid: 61e044b99c9494a3180515255de1739e, type: 3}
       propertyPath: maxDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 872165700732480300, guid: 61e044b99c9494a3180515255de1739e, type: 3}
+      propertyPath: moveOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497383734388207752, guid: 61e044b99c9494a3180515255de1739e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4497383734388207753, guid: 61e044b99c9494a3180515255de1739e, type: 3}
       propertyPath: m_RootOrder
@@ -307,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Bullet1
       objectReference: {fileID: 0}
+    - target: {fileID: 4497383734388207756, guid: 61e044b99c9494a3180515255de1739e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4497383734388207758, guid: 61e044b99c9494a3180515255de1739e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -329,6 +345,30 @@ PrefabInstance:
 Animator:
   m_CorrespondingSourceObject: {fileID: 4497383734388207759, guid: 61e044b99c9494a3180515255de1739e, type: 3}
   m_PrefabInstance: {fileID: 600064858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &947712124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4579501217481835229, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
+  m_PrefabInstance: {fileID: 1007994734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &947712125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947712124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea2f144b590c4c49a3911e7b6ede705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 872165700732480300, guid: 61e044b99c9494a3180515255de1739e, type: 3}
+  player: {fileID: 947712129}
+--- !u!4 &947712129 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4579501217481835203, guid: 55cb42d523918504fbefb8421098e03c, type: 3}
+  m_PrefabInstance: {fileID: 1007994734}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1007994734
 PrefabInstance:

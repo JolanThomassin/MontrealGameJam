@@ -98,6 +98,8 @@ public abstract class Bullet : Attack
         }
 
         // when the co-routine for movement is done, destroy this bullet
+
+        //stop();
         Destroy(this.gameObject);
     }
 
@@ -106,6 +108,7 @@ public abstract class Bullet : Attack
     /// </summary>
     protected void stop()
     {
+        //if (coroutine != null)
         StopCoroutine(this.coroutine);
         rb.velocity = Vector3.zero;
 
