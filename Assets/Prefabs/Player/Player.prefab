@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -6510644940447039832}
   - component: {fileID: 5605910249066407376}
   - component: {fileID: 3692315110903813493}
+  - component: {fileID: 5098043206173504027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4579501217481835229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -152,3 +153,18 @@ MonoBehaviour:
   cooldown: 1
   timer: 0.5
   bulletSpeed: 3
+--- !u!114 &5098043206173504027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579501217481835229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac70f2ec0547594e845ca6b8ba085e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doctorMask:
+    serializedVersion: 2
+    m_Bits: 64
