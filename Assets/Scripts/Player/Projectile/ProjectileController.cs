@@ -54,7 +54,8 @@ namespace Assets.Prefabs.Projectile
                 var bullet1 = Instantiate(bullet, player.transform.position, player.transform.rotation);
                 bullet1.transform.rotation = Quaternion.Euler(rotation);
                 // bullet1.setDirection(bullet.direction);
-               var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(Quaternion.LookRotation(Vector3.forward, movement))* player.transform.up;
+                //var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(Quaternion.LookRotation(Vector3.forward, movement))* player.transform.up;
+                var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(player.transform.rotation) * player.transform.up;
                 bullet1.setDirection(dir);
             }
         }

@@ -12,6 +12,13 @@ public class DoctorHP : MonoBehaviour
 
     public bool isDied = false;
 
+    Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +52,22 @@ public class DoctorHP : MonoBehaviour
             timer += tickRate;
         }
         isInfected=false;
+    }
+
+    public void GetTrapped(GameObject trap, float duration = 3)
+    {
+        isTrapped = true;
+        StartCoroutine(TrapCoroutine(duration, trap));
+    }
+
+    IEnumerator TrapCoroutine(float duration, GameObject trap)
+    {
+        var curConstraints = rb.constraints;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        yield return new WaitForSeconds(duration);
+        isTrapped = false;
+        rb.constraints = curConstraints;
+        Destroy(trap);
     }
 
         
