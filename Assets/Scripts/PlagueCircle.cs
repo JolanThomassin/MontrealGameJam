@@ -54,12 +54,33 @@ public class PlagueCircle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        inRange = true;
+        if (other.gameObject.tag == "Doctor") {
+            inRange = true;
+        }
+        if (other.gameObject.tag == "Villager") {
+            other.gameObject.GetComponent<VillagerAI>().plegued = true;
+        }
+        
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Villager") {
+            other.gameObject.GetComponent<VillagerAI>().PV--;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        inRange = false;
+        if (other.gameObject.tag == "Doctor") {
+            inRange = false;
+        }
+        if (other.gameObject.tag == "Villager") {
+            other.gameObject.GetComponent<VillagerAI>().plegued = false;
+        }
+
+        
+        
     }
 
     private void ApplyHit() {
