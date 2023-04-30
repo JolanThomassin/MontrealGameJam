@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Ressources/Background/BackgroundAnimation.anim.meta
+guid: e75ddd075fb7d27429a9d21a44ea7d34
+=======
+guid: 9d539980fcc44de4f93ea322dad93116
+>>>>>>> LevelAndSkills:Assets/Sprites/Bullet/CloudAnim.anim.meta
+=======
+guid: e75ddd075fb7d27429a9d21a44ea7d34
+>>>>>>> LevelAndSkills
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

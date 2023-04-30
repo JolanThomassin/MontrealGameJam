@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Plugins.meta
+guid: 794d6695f3631734b8de1a1e79e3ba8b
+========
+guid: 3fe78b82fb269e643b00aa7f3472eb15
+>>>>>>>> LevelAndSkills:Assets/Sprites/Doctor.meta
+=======
+guid: 794d6695f3631734b8de1a1e79e3ba8b
+>>>>>>> LevelAndSkills
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

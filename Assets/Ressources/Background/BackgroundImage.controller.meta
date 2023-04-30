@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Ressources/Background/BackgroundImage.controller.meta
 guid: a3397eef526efee4e86b958e3cd10e91
+========
+guid: 51aa2a003c57423489daede1659b83df
+>>>>>>>> LevelAndSkills:Assets/Sprites/Doctor/DoctorAnimator.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000
