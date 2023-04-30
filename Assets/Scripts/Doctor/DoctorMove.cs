@@ -45,12 +45,7 @@ public class DoctorMove : MonoBehaviour
 
     private void Update()
     {
-
-        if (rigidbody.velocity.x > 0)
-            MoveRight();
-
-        if (rigidbody.velocity.x < 0)
-            MoveLeft();
+      
         bool down = Input.GetKey(KeyCode.Keypad2);
         bool up = Input.GetKey(KeyCode.Keypad5);
         bool left = Input.GetKey(KeyCode.Keypad1);
@@ -74,7 +69,18 @@ public class DoctorMove : MonoBehaviour
             MoveDown();
         }
         Vector2 vec = new Vector2(horizontal, vertical);
-        rigidbody.velocity = vec * speed;
+        if (vec.magnitude > 0)
+            rigidbody.velocity = vec * speed;
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (rigidbody.velocity.x > 0)
+            MoveRight();
+
+        if (rigidbody.velocity.x < 0)
+            MoveLeft();
     }
 
 

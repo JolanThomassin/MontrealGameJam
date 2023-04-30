@@ -52,7 +52,9 @@ public class PlagueCircle : MonoBehaviour
         }
         if (other.gameObject.tag == "Doctor") {
             other.gameObject.GetComponent<DoctorAI>().PV--;
+           // other.gameObject.GetComponent<DoctorHP>().GetInfected();
         }
+
     }
 
     void OnTriggerExit2D(Collider2D other)

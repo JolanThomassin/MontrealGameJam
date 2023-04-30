@@ -65,7 +65,8 @@ public class Player_Bullet : Bullet
 
         if (collision.gameObject.tag == "Doctor")
         {
-            collision.gameObject.GetComponent<DoctorHP>().LoseHp(damage);
+            //collision.gameObject.GetComponent<DoctorHP>().LoseHp(damage);
+            collision.gameObject.GetComponent<DoctorAI>().PV-=damage;
             stop();
         }
     }
