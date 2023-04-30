@@ -685,12 +685,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 6870680805777726152}
-  _musicSourcePhase1: {fileID: 0}
-  _musicSourcePhase2: {fileID: 0}
-  _musicSourcePhase3: {fileID: 0}
-  _musicSourcePhase4: {fileID: 0}
+  _musicSourcePhase1: {fileID: 3027459600586973915}
+  _musicSourcePhase2: {fileID: 5906533881604642694}
+  _musicSourcePhase3: {fileID: 2254668250446695995}
+  _musicSourcePhase4: {fileID: 8631633594023264756}
   _effectsSource: {fileID: 6870680804295164936}
-  inMenu: 0
+  inMenu: 1
   inGame: 0
 --- !u!1 &6870680805777726153
 GameObject:

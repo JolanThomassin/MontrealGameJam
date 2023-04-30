@@ -1128,11 +1128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 9e6d20677c317dc489aea91892c29c17, type: 3}
---- !u!82 &479106746 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3027459600586973915, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-  m_PrefabInstance: {fileID: 6870680804999057951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &484467846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,11 +1385,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!82 &638196207 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2254668250446695995, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-  m_PrefabInstance: {fileID: 6870680804999057951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &651073081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,11 +2877,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!82 &1280354764 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5906533881604642694, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-  m_PrefabInstance: {fileID: 6870680804999057951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1323967693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,11 +3181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 9e6d20677c317dc489aea91892c29c17, type: 3}
---- !u!82 &1360546199 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8631633594023264756, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-  m_PrefabInstance: {fileID: 6870680804999057951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1373294871
 GameObject:
   m_ObjectHideFlags: 0
@@ -4954,26 +4934,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6870680805724277035, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-      propertyPath: inMenu
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6870680805724277035, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-      propertyPath: _musicSourcePhase1
-      value: 
-      objectReference: {fileID: 479106746}
-    - target: {fileID: 6870680805724277035, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-      propertyPath: _musicSourcePhase2
-      value: 
-      objectReference: {fileID: 1280354764}
-    - target: {fileID: 6870680805724277035, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-      propertyPath: _musicSourcePhase3
-      value: 
-      objectReference: {fileID: 638196207}
-    - target: {fileID: 6870680805724277035, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
-      propertyPath: _musicSourcePhase4
-      value: 
-      objectReference: {fileID: 1360546199}
     - target: {fileID: 6870680805724277036, guid: f98d73a9256dedd4a89daa4bdec8c5be, type: 3}
       propertyPath: m_Name
       value: Sound Manager

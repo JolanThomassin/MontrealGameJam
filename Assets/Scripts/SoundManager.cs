@@ -13,7 +13,6 @@ public class SoundManager : MonoBehaviour
 
     private float _musicFadeTime = 10.0f;
     private float _musicFadeTimer = 0.0f;
-    private bool isChanged = true;
     private int phase = 0;
 
     void Awake() {
@@ -31,6 +30,7 @@ public class SoundManager : MonoBehaviour
 
     void ResetMusic() {
         if (inGame) {
+            Debug.Log("Oui");
             currentSource = _musicSourcePhase1;
             _musicSourcePhase2.volume = 0;
             _musicSourcePhase3.volume = 0;
@@ -50,15 +50,20 @@ public class SoundManager : MonoBehaviour
         if (inMenu) {
             inMenu = false;
             inGame = true;
+            _musicFadeTime = 10.0f;
+            _musicFadeTimer = 0.0f;
+            ResetMusic();
         } else {
             inMenu = true;
             inGame = false;
+            _musicFadeTime = 10.0f;
+            _musicFadeTimer = 0.0f;
+            ResetMusic();
         }
         ResetMusic();
     }
 
     void Update() {
-        if (isChanged) {
             // Vérifie si la musique doit être montée
             if (_musicFadeTimer < _musicFadeTime) {
                 // Met à jour le timer de fondu
@@ -70,7 +75,6 @@ public class SoundManager : MonoBehaviour
                 // Met à jour le volume de la musique
                 currentSource.volume = volume;
             }
-        }
     }
     public void StopMusic()
     {
@@ -136,7 +140,6 @@ public class SoundManager : MonoBehaviour
     }
 
     public void ChangeMusicVolume(float value) {
-        isChanged = false;
         _musicSource.volume = value;  
     }
 

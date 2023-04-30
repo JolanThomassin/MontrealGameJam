@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: -8189705035503481932}
   - component: {fileID: -1594084228092451394}
   - component: {fileID: 8114454637207469993}
+  - component: {fileID: 3709907832272265640}
   m_Layer: 0
   m_Name: Plague
   m_TagString: Untagged
@@ -547,25 +548,8 @@ MonoBehaviour:
   shootMouse: 1
   _clip: {fileID: 8300000, guid: efda7a6516ede5b4a836e4aff577a0e3, type: 3}
   bulletSpeed: 2
---- !u!114 &3709907832272265640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8614996172302764519}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18f4e1b9438baf4686ac0cd405a4bf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spotlightMat: {fileID: 2100000, guid: ee404156a1bb9e146b1963665cae03f0, type: 2}
-  probe: {fileID: 4390819353457112572, guid: 901e5caa17ae3d144b53f1590457f015, type: 3}
-  target: {fileID: 2491594481325821317, guid: 46ff23a650e4fb74d96a2d199cbf2e9b, type: 3}
-  numSpawns: 12
-  duration: 5
-  speed: 5
-  _clip: {fileID: 8300000, guid: 0b2ff584c0ec052478760ee5f8e592b8, type: 3}
+  skill: {fileID: 0}
+  anchor: {fileID: 0}
 --- !u!114 &8114454637207469993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +566,25 @@ MonoBehaviour:
   maxNumberOfTraps: 3
   numberOfTraps: 0
   _clip: {fileID: 8300000, guid: 7acbc01fa3339634a905b525454ca517, type: 3}
+--- !u!114 &3709907832272265640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614996172302764519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18f4e1b9438baf4686ac0cd405a4bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotlightMat: {fileID: 2100000, guid: ee404156a1bb9e146b1963665cae03f0, type: 2}
+  probe: {fileID: 4390819353457112572, guid: 901e5caa17ae3d144b53f1590457f015, type: 3}
+  target: {fileID: 2491594481325821317, guid: 46ff23a650e4fb74d96a2d199cbf2e9b, type: 3}
+  numSpawns: 12
+  duration: 5
+  speed: 5
+  _clip: {fileID: 8300000, guid: 0b2ff584c0ec052478760ee5f8e592b8, type: 3}
 --- !u!1 &9100210122174618885
 GameObject:
   m_ObjectHideFlags: 0
