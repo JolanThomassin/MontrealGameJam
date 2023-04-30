@@ -29,23 +29,27 @@ public class PlayerMovement : MonoBehaviour
     // Flag to indicate if the player has already dashed
     private bool hasDashed = false;
 
-    public Animator animator;
+    private Quaternion originalRotation;
 
-    void Start()
+    public Camera mainCamera;
+ public Animator animator;
+
+    public void PlagueStart()
     {
         //Store the rigid component at the start of the game
         rigidbody2d = GetComponent<Rigidbody2D>();
-        if (!animator)
-            animator = GetComponent<Animator>();
+
+        originalRotation = transform.rotation;
     }
 
-     // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         //Move function
         Move();
 
-        
+        transform.rotation = originalRotation;
+
     }
 
     /**
@@ -56,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         //Get the horizontal and vertical input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
         //Create a new vector of those input
         Vector2 movement = new Vector2(horizontal, vertical);
         if (horizontal < 0)
@@ -118,8 +123,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward, movement);
             movement = movement.normalized; // Store the dash direction
-            // counter the child transform rotation
-            transform.GetChild(0).localRotation = Quaternion.Euler(-transform.rotation.eulerAngles);
         }
 
         //Check if dash can be used
@@ -139,8 +142,9 @@ public class PlayerMovement : MonoBehaviour
             hasDashed = false; // Reset the flag when the cooldown is over
         }
 
-        Vector2 vec= new Vector2(horizontal, vertical);
-        rigidbody2d.velocity = vec * movementValue;
+        //Camera follow player
+        mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+
     }
 
 }

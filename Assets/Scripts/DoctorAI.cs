@@ -1,80 +1,183 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class DoctorAI : MonoBehaviour
 {
 
-    private float speed = 10f;
+    private float speed = 1f;
+    public int PV;
 
     //-1 = Gauche, 0 = Bouge pas, 1 = Droite
     private int chosenDirectionX;
-     //-1 = Haut, 0 = Bouge pas, 1 = Bas
+    //-1 = Haut, 0 = Bouge pas, 1 = Bas
     private int chosenDirectionY;
     private int timerDecision = 0;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
+    private CircleCollider2D circleCollider; 
     Vector2 movementVector = Vector2.zero;
 
-    public Rigidbody2D[] objectives;
-    Rigidbody2D objectiveMinimum;
+    public GameObject gameOverLoss;
+    public GameObject gameOverWin;
+    public LevelGenerator levelGenerator;
+
+    public List<GameObject> objectives;
+    GameObject objectiveMinimum;
+    int indiceTab = 0;
+
+    int tempsDeBlocage = 0;
+    int nbrAttenteBlocage = 0;
+
+    int nbrPillCollected = 0;
+    public int pillsNeeded = 30;
+
+    bool switchMur = false;
+
 
     //private Animator animator;
     //private SpriteRenderer SpriteRenderer;
 
     // Start is called before the first frame update
     
-    void Start()
+    public void DoctorStart()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
+       
+        objectives = levelGenerator.listPills;
 
         objectiveMinimum = objectives[0];
-        foreach (Rigidbody2D objective in objectives) {
+        int rolls = 0;
+        foreach (GameObject objective in objectives) {
             
-            if(Distance(objectiveMinimum.position) > Distance(objective.position)) {
+            if(Distance(objectiveMinimum.transform.position) > Distance(objective.transform.position)) {
                 objectiveMinimum = objective;
+                indiceTab = rolls;
             }
+            rolls++;
         }
-
-        Decision();
-
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
 
-        Decision();
+        if (objectives != null) {
+            Decision();
+        }
 
-        float memoPosX = movementVector.x;
-        float memoPosY = movementVector.y;
+        movementVector.x = chosenDirectionX  * this.speed;
+        movementVector.y = chosenDirectionY  * this.speed;
+        
 
-        movementVector.x = chosenDirectionX * Time.deltaTime * this.speed;
-        movementVector.y = chosenDirectionY * Time.deltaTime * this.speed;
+        if(switchMur) {
+            circleCollider.enabled = false;
+            transform.localScale = new Vector3(1.2f,1.2f,1.2f);
+            tempsDeBlocage++;
+        }
+        if (tempsDeBlocage > 200) {
+            circleCollider.enabled = true;
+            transform.localScale = new Vector3(1,1,1);
+            tempsDeBlocage = 0;
+            switchMur = false;
+        } 
+    
+        rb.velocity = movementVector * this.speed;
 
-        movementVector.Normalize();
-
-        rigidbody.velocity = movementVector * this.speed;
+        //WIN CONGRATS !!!!
+        //Debug.Log(PV);
+        if(PV <= 0) {
+            if (gameOverWin != null)
+                gameOverWin = (GameObject)Instantiate(gameOverWin);
+            SoundManager.Instance.StopMusic();
+            Destroy(gameObject);
+            nbrPillCollected = 10;
+            levelGenerator.PrintDoctorDead();
+        }
         
         
     }
 
     void Decision() {
-            if(objectiveMinimum.position.x >= rigidbody.position.x) {
-                chosenDirectionX = 1;
-            }else if(objectiveMinimum.position.x  < rigidbody.position.x) {
-                chosenDirectionX = -1;
-            }
+            if(nbrPillCollected < pillsNeeded && objectiveMinimum) {
+                Vector2 v1 = objectiveMinimum.transform.position;
+                Vector2 v2 = rb.position;
 
-            if(objectiveMinimum.position.y  >= rigidbody.position.y) {
-                chosenDirectionY = 1;
-            }else if(objectiveMinimum.position.y  < rigidbody.position.y) {
-                chosenDirectionY = -1;
+                if(v1.x > v2.x) {
+                    chosenDirectionX = 1;
+                }else if(v1.x  < v2.x -0.5f) {
+                    chosenDirectionX = -1;
+                }else {
+                    chosenDirectionX = 0;
+                }
+
+                if(v1.y  > v2.y) {
+                    chosenDirectionY = 1;
+                }else if(v1.y  < v2.y -0.5f) {
+                    chosenDirectionY = -1;
+                }else {
+                    chosenDirectionY = 0;
+                }
             }
+            else
+            {
+                chosenDirectionY = 0;
+            }
+        }
+
+    float Distance(Vector2 point)
+    {
+        return Mathf.Sqrt(Mathf.Pow(rb.position.x - point.x, 2) + Mathf.Pow(rb.position.y - point.y, 2));
     }
 
-    float Distance(Vector2 point) {
-        return Mathf.Sqrt(Mathf.Pow(rigidbody.position.x-point.x,2) + Mathf.Pow(rigidbody.position.y-point.y,2));
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("1F");
+        if (other.gameObject.tag == "Wall") {
+            Debug.Log("2F");
+            switchMur = true;
+        }
+        if (other.gameObject.tag == "Pill") {
+
+            objectives.RemoveAt(indiceTab);
+            Destroy(other.gameObject);
+            nbrPillCollected++;
+            SoundManager soundManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+            if (soundManager != null) {
+                soundManager.CheckPhase(nbrPillCollected, pillsNeeded);
+            }
+
+
+            if(nbrPillCollected < pillsNeeded) {
+                objectiveMinimum = objectives[0];
+                indiceTab = 0;
+                int rolls = 0;
+                foreach (GameObject objective in objectives)
+                {
+
+                    if (Distance(objectiveMinimum.transform.position) > Distance(objective.transform.position))
+                    {
+                        objectiveMinimum = objective;
+                        indiceTab = rolls;
+                    }
+                    rolls++;
+                }
+            }else {
+                if(gameOverLoss != null)
+                {
+                    gameOverLoss = (GameObject)Instantiate(gameOverLoss);
+                    SoundManager.Instance.StopMusic();
+                }
+            }
+
+        }
+        if (other.gameObject.tag == "Plague") {
+            PV--;
+        }
     }
 }
