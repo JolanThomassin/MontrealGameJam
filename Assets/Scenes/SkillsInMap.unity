@@ -5145,6 +5145,14 @@ PrefabInstance:
       propertyPath: cooldown
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: -1594084228092451394, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
+      propertyPath: shootMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1594084228092451394, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
+      propertyPath: shootFacing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3684546703064435708, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
       propertyPath: m_RootOrder
       value: 4
