@@ -25,8 +25,8 @@ public class DoctorHP : MonoBehaviour
 
     public void GetInfected(int dmgOverTime = 1, float duration = 5, float tickRate = 1)
     {
-        if (!isInfected)
-            StartCoroutine(DoTCoroutine(dmgOverTime, duration, tickRate));
+        isInfected = true;
+        StartCoroutine(DoTCoroutine(dmgOverTime, duration, tickRate));
     }
 
     public void LoseHp(int dmg)
@@ -44,7 +44,6 @@ public class DoctorHP : MonoBehaviour
     IEnumerator DoTCoroutine(int dmgOverTime, float duration, float tickRate)
     {
         float timer = 0;
-        isInfected = true;
         while (timer < duration)
         {
             yield return new WaitForSeconds(tickRate);

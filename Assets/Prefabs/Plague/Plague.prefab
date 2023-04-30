@@ -507,7 +507,6 @@ MonoBehaviour:
   dashDuration: 0.1
   dashCooldown: 1
   mainCamera: {fileID: 0}
-  animator: {fileID: 1202034259}
 --- !u!114 &-8189705035503481932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,6 +545,7 @@ MonoBehaviour:
   timer: 0.5
   shootFacing: 0
   shootMouse: 1
+  _clip: {fileID: 8300000, guid: efda7a6516ede5b4a836e4aff577a0e3, type: 3}
   bulletSpeed: 2
 --- !u!114 &3709907832272265640
 MonoBehaviour:
@@ -565,6 +565,7 @@ MonoBehaviour:
   numSpawns: 12
   duration: 5
   speed: 5
+  _clip: {fileID: 8300000, guid: 0b2ff584c0ec052478760ee5f8e592b8, type: 3}
 --- !u!114 &8114454637207469993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +581,7 @@ MonoBehaviour:
   trapPrefab: {fileID: 4359587826138192690, guid: f6cfeb3f0d46e114d81874211cbc48b5, type: 3}
   maxNumberOfTraps: 3
   numberOfTraps: 0
+  _clip: {fileID: 8300000, guid: 7acbc01fa3339634a905b525454ca517, type: 3}
 --- !u!1 &9100210122174618885
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +677,7 @@ Animator:
   m_GameObject: {fileID: 9100210122174618885}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f6751979c1d05047bc4fb4cb4d94880, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

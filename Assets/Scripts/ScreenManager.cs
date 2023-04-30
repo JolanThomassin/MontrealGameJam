@@ -9,6 +9,7 @@ public class ScreenManager : MonoBehaviour
     public GameObject mainMenuScreen;
     public GameObject settingsScreen;
     public GameObject infoScreen;
+    public GameObject trueInfoScreen;
     public SoundManager soundManager;
 
     public void GoToMainMenu()
@@ -31,12 +32,18 @@ public class ScreenManager : MonoBehaviour
         mainMenuScreen.SetActive(false);
         infoScreen.SetActive(true);
     }
+    public void GoToTrueInfo()
+    {
+        mainMenuScreen.SetActive(false);
+        trueInfoScreen.SetActive(true);
+    }
     public void GoToMainMenuTwo()
     {
         openingScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
         settingsScreen.SetActive(false);
         infoScreen.SetActive(false);
+        trueInfoScreen.SetActive(false);
     }
 
     IEnumerator FadeOutToMainScreen(GameObject screen)

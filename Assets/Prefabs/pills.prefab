@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6389256407353315097}
   - component: {fileID: 4011553901976284160}
   - component: {fileID: 8929733173525702734}
-  - component: {fileID: -8193924282171391077}
   m_Layer: 0
   m_Name: pills
   m_TagString: Pill
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -922953311
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 90c72525a8fcf7e42bcf1a6e2201e98e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 680bfceb4f883344db4519de41d08c38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,22 +134,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &-8193924282171391077
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445147138641234556}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9513ef980596d04e8f573b1e083d15d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

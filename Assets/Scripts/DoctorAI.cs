@@ -30,6 +30,7 @@ public class DoctorAI : MonoBehaviour
     int nbrAttenteBlocage = 0;
 
     int nbrPillCollected = 0;
+    public int pillsNeeded = 10;
 
     bool switchMur = false;
 
@@ -141,6 +142,10 @@ public class DoctorAI : MonoBehaviour
             objectives.RemoveAt(indiceTab);
             Destroy(other.gameObject);
             nbrPillCollected++;
+            SoundManager soundManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+            if (soundManager != null) {
+                soundManager.CheckPhase(nbrPillCollected, pillsNeeded);
+            }
 
 
             if(nbrPillCollected < 10) {
