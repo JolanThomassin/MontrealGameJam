@@ -102,6 +102,21 @@ public class VillagerAI : MonoBehaviour
                 }
             }
         }
+
+        if(target.gameObject.tag == "PlayerBullet") {
+            this.speed += 2f;
+                if(target.gameObject.transform.position.x >= transform.position.x) {
+                    chosenDirectionX = -1;
+                }else {
+                    chosenDirectionX = 1;
+                }
+
+                if(target.gameObject.transform.position.y >= transform.position.y) {
+                    chosenDirectionY = 1;
+                }else {
+                    chosenDirectionY = -1;
+                }
+        }
     }
 
     void OnTriggerStay2D(Collider2D target)
