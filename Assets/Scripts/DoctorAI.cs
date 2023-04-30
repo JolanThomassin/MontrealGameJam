@@ -18,7 +18,11 @@ public class DoctorAI : MonoBehaviour
     private CircleCollider2D circleCollider; 
     Vector2 movementVector = Vector2.zero;
 
+<<<<<<< Updated upstream
     public List<Rigidbody2D> objectives;
+=======
+    public List<Rigidbody2D> objectives = null;
+>>>>>>> Stashed changes
     Rigidbody2D objectiveMinimum;
     int indiceTab = 0;
 
@@ -37,6 +41,7 @@ public class DoctorAI : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
 
+<<<<<<< Updated upstream
         objectiveMinimum = objectives[0];
         int rolls = 0;
         foreach (Rigidbody2D objective in objectives) {
@@ -46,17 +51,31 @@ public class DoctorAI : MonoBehaviour
                 indiceTab = rolls;
             }
             rolls++;
+=======
+        if (objectives != null) {
+            objectiveMinimum = objectives[0];
+            int rolls = 0;
+            foreach (Rigidbody2D objective in objectives) {
+                
+                if(Distance(objectiveMinimum.position) > Distance(objective.position)) {
+                    objectiveMinimum = objective;
+                    indiceTab = rolls;
+                }
+                rolls++;
+            }
+
+            Decision();
+>>>>>>> Stashed changes
         }
-
-        Decision();
-
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        Decision();
+        if (objectives != null) {
+            Decision();
+        }
 
         float memoPosX = movementVector.x;
         float memoPosY = movementVector.y;
@@ -93,6 +112,7 @@ public class DoctorAI : MonoBehaviour
     }
 
     void Decision() {
+<<<<<<< Updated upstream
             if(nbrPillCollected < 4) {
                 Vector2 v1 = objectiveMinimum.position;
                 Vector2 v2 = rigidbody.position;
@@ -112,7 +132,28 @@ public class DoctorAI : MonoBehaviour
                 }else {
                     chosenDirectionY = 0;
                 }
+=======
+        if(nbrPillCollected < 4) {
+            Vector2 v1 = objectiveMinimum.position;
+            Vector2 v2 = rigidbody.position;
+
+            if(v1.x > v2.x) {
+                chosenDirectionX = 1;
+            }else if(v1.x  < v2.x -0.5f) {
+                chosenDirectionX = -1;
+            }else {
+                chosenDirectionX = 0;
             }
+
+            if(v1.y  > v2.y) {
+                chosenDirectionY = 1;
+            }else if(v1.y  < v2.y -0.5f) {
+                chosenDirectionY = -1;
+            }else {
+                chosenDirectionY = 0;
+>>>>>>> Stashed changes
+            }
+        }
     }
 
     float Distance(Vector2 point) {
@@ -121,7 +162,11 @@ public class DoctorAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D infoCollision) {
 
+<<<<<<< Updated upstream
         if (infoCollision.gameObject.name == "Circle") {
+=======
+        if (infoCollision.gameObject.name == "pills") {
+>>>>>>> Stashed changes
 
             objectives.RemoveAt(indiceTab);
             Destroy(infoCollision.gameObject);
@@ -140,8 +185,12 @@ public class DoctorAI : MonoBehaviour
                     }
                     rolls++;
                 }
+<<<<<<< Updated upstream
             }
             
+=======
+            }    
+>>>>>>> Stashed changes
         }
     }
 
