@@ -46,7 +46,11 @@ public class DoctorMove : MonoBehaviour
     private void Update()
     {
 
+        if (rigidbody.velocity.x > 0)
+            MoveRight();
 
+        if (rigidbody.velocity.x < 0)
+            MoveLeft();
         bool down = Input.GetKey(KeyCode.Keypad2);
         bool up = Input.GetKey(KeyCode.Keypad5);
         bool left = Input.GetKey(KeyCode.Keypad1);

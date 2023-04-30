@@ -85,7 +85,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6946d98134a5331478ae354da7823aaf, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,10 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8f4aa1ae16d4c90ac21ed0f2cacc97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   speed: 20
   animator: {fileID: 4497383734388207759}
-  direction: {x: 0, y: 2, z: 0}
+  direction: {x: 0, y: -2, z: 0}
   maxDistance: 10
   moveOnStart: 1
   test: 0
