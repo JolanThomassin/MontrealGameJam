@@ -72,8 +72,17 @@ public class SoundManager : MonoBehaviour
             }
         }
     }
-
-    public void CheckPhase(int numberPills, int numberNeeded) {
+    public void StopMusic()
+    {
+            _musicSourcePhase1.volume = 0;
+        _musicSourcePhase2.volume = 0;
+            _musicSourcePhase3.volume = 0;
+            _musicSourcePhase4.volume = 0;
+            _musicSource.volume = 0;
+        inMenu = false;
+        inGame = false;
+    }
+        public void CheckPhase(int numberPills, int numberNeeded) {
         float percentage = (float)numberPills / (float)numberNeeded;
 
         if (percentage < 0.25f)

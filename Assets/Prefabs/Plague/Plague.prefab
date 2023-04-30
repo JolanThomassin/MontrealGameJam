@@ -376,7 +376,6 @@ GameObject:
   - component: {fileID: 4666468310994103189}
   - component: {fileID: -8189705035503481932}
   - component: {fileID: -1594084228092451394}
-  - component: {fileID: 3709907832272265640}
   - component: {fileID: 8114454637207469993}
   m_Layer: 0
   m_Name: Plague

@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Create a new vector of those input
         Vector2 movement = new Vector2(horizontal, vertical);
-if (horizontal < 0)
+        if (horizontal < 0)
         {
             animator.SetBool("WalkLeft", true);
             animator.SetBool("WalkRight", false);

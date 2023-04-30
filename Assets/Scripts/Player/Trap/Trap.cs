@@ -28,6 +28,6 @@ public class Trap : MonoBehaviour
         SoundManager.Instance.PlaySoundEffects(_clip);
         numberOfTraps += 1;
         Vector3 trapPosition = transform.position;
-        GameObject trap = Instantiate(trapPrefab, trapPosition, Quaternion.identity);   
+        GameObject trap = Instantiate(trapPrefab, trapPosition, Quaternion.identity);
     }
 }

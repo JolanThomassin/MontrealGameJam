@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d212941989e95514897f992a5db448d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PV: 500
+  PV: 750
+  gameOverLoss: {fileID: 7487391667670929238, guid: 8800953f6098c36439642226ae210c3c, type: 3}
+  gameOverWin: {fileID: 8520137068646094203, guid: 22e01d3c7c2654442bd0d64caf0da150, type: 3}
   levelGenerator: {fileID: 0}
   objectives: []
   pillsNeeded: 10
@@ -120,6 +122,7 @@ MonoBehaviour:
   isTrapped: 0
   isDied: 0
   HPText: {fileID: 8871344008334192582, guid: 871786f515037184da6bfd5a5a1e0479, type: 3}
+  gameOverWin: {fileID: 8520137068646094203, guid: 22e01d3c7c2654442bd0d64caf0da150, type: 3}
 --- !u!50 &4030423077390286501
 Rigidbody2D:
   serializedVersion: 4

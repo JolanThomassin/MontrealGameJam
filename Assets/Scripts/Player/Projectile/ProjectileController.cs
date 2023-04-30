@@ -19,13 +19,19 @@ namespace Assets.Prefabs.Projectile
         [SerializeField]
         private float bulletSpeed = 2f;
         // Use this for initialization
-
+        [SerializeField]
+        private GameObject skill;
+        [SerializeField]
+        private GameObject anchor;
+        private Vector2 skillGoBack = new Vector2(0, 65f);
         // Update is called once per frame
         void Update()
         {
             timer += Time.deltaTime;
             if (timer > 1)
-                timer = 1.1f;
+            {
+                timer = 1 + 1f;
+            }
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
