@@ -56,7 +56,6 @@ namespace Assets.Prefabs.Projectile
             {
                 var shootDirection = Input.mousePosition;
                 shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
-                Debug.Log(shootDirection);
                 shootDirection = (shootDirection - transform.position);
               
                 shootDirection.Normalize();

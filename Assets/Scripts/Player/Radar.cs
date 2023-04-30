@@ -8,6 +8,8 @@ public class Radar : MonoBehaviour
 
     public GameObject probe;
 
+    public GameObject target;
+
     public int numSpawns = 12;
 
     public float duration = 5f;
@@ -45,6 +47,16 @@ public class Radar : MonoBehaviour
             vel.Normalize();
             p.GetComponent<Rigidbody2D>().velocity = speed * vel;
             list.Add(p);
+        }
+        if (target)
+        {
+            yield return new WaitForSeconds(0.5f);
+            foreach (var p in list)
+            {
+                var vel = (target.transform.position - transform.position);
+                vel.Normalize();
+                p.GetComponent<Rigidbody2D>().velocity = speed * vel;
+            }
         }
         yield return new WaitForSeconds(duration);
         foreach(var p in list)

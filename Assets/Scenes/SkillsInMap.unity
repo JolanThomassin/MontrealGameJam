@@ -5972,6 +5972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotlightMat: {fileID: 2100000, guid: ee404156a1bb9e146b1963665cae03f0, type: 2}
   probe: {fileID: 4390819353457112572, guid: 901e5caa17ae3d144b53f1590457f015, type: 3}
+  target: {fileID: 1537605554}
   numSpawns: 12
   duration: 5
   speed: 5
