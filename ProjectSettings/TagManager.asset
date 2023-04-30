@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerBullet
+  - Pill
   layers:
   - Default
   - TransparentFX
@@ -45,9 +46,9 @@ TagManager:
   - name: Ground
     uniqueID: 2259280095
     locked: 0
-  - name: Character
-    uniqueID: 3372013985
-    locked: 0
   - name: Wall
     uniqueID: 679541231
+    locked: 0
+  - name: Character
+    uniqueID: 3372013985
     locked: 0
