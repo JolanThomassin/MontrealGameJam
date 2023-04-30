@@ -5451,8 +5451,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 46
-  orthographic: 0
-  orthographic size: 12.624943
+  orthographic: 1
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5893,7 +5893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1594084228092451394, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
       propertyPath: shootMouse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1594084228092451394, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
       propertyPath: bulletSpeed
@@ -5901,7 +5901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1594084228092451394, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
       propertyPath: shootFacing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3684546703064435708, guid: 49875e021dbddf946a7a53535fbf9dcb, type: 3}
       propertyPath: m_RootOrder
