@@ -33,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera mainCamera;
 
+    public Animator animator;
+
+           
 
     public void PlagueStart()
     {
@@ -40,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
 
         originalRotation = transform.rotation;
+        if (!animator)
+            animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,7 +68,36 @@ public class PlayerMovement : MonoBehaviour
 
         //Create a new vector of those input
         Vector2 movement = new Vector2(horizontal, vertical);
-
+        if (horizontal < 0)
+        {
+            animator.SetBool("WalkLeft", true);
+            animator.SetBool("WalkRight", false);
+        }
+        else if (horizontal > 0)
+        {
+            animator.SetBool("WalkLeft", false);
+            animator.SetBool("WalkRight", true);
+        }
+        else
+        {
+            animator.SetBool("WalkLeft", false);
+            animator.SetBool("WalkRight", false);
+        }
+        if (vertical < 0)
+        {
+            animator.SetBool("WalkDown", true);
+            animator.SetBool("WalkUp", false);
+        }
+        else if (vertical > 0)
+        {
+            animator.SetBool("WalkDown", false);
+            animator.SetBool("WalkUp", true);
+        }
+        else
+        {
+            animator.SetBool("WalkDown", false);
+            animator.SetBool("WalkUp", false);
+        }
         //Check if dashing
         if (isDashing)
         {

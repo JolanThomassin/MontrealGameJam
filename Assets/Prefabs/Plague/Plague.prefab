@@ -507,6 +507,7 @@ MonoBehaviour:
   dashDuration: 0.1
   dashCooldown: 1
   mainCamera: {fileID: 0}
+  animator: {fileID: 1202034259}
 --- !u!114 &-8189705035503481932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +675,7 @@ Animator:
   m_GameObject: {fileID: 9100210122174618885}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f6751979c1d05047bc4fb4cb4d94880, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
