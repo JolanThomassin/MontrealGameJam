@@ -10,6 +10,7 @@ public class LevelGenerator : SerializedMonoBehaviour
     public int Widith;
     public int Height;
     public int NumberObstacle;
+
     public int NumberAttemptMax;
     public int MinDistanceBetweenObstacleWall;
     public int MinDistanceBetweenObstaclePoint;
@@ -24,10 +25,6 @@ public class LevelGenerator : SerializedMonoBehaviour
     public List<GameObject> listPills;
     public List<GameObject> listVillagers;
 
-    public int NumberAttemptMax;
-    public int MinDistanceBetweenObstacleWall;
-    public int MinDistanceBetweenObstaclePoint;
-
     HashSet<Vector2Int> PathPosition = new HashSet<Vector2Int>();
     HashSet<Vector2Int> WallPosition = new HashSet<Vector2Int>();
     HashSet<Vector2Int> ObstaclePosition = new HashSet<Vector2Int>();
@@ -38,7 +35,7 @@ public class LevelGenerator : SerializedMonoBehaviour
     private TilePainter tilePainter;
 
     [Button("Generate")]
-    public void Generate()
+    private void Start()
     {
         Clear();
         GenerateRoom(Vector2Int.zero, Widith, Height);

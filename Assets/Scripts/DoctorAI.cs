@@ -33,6 +33,7 @@ public class DoctorAI : MonoBehaviour
 
     bool switchMur = false;
 
+
     //private Animator animator;
     //private SpriteRenderer SpriteRenderer;
 
@@ -42,7 +43,7 @@ public class DoctorAI : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
-
+       
         objectives = levelGenerator.listPills;
 
         objectiveMinimum = objectives[0];
@@ -62,24 +63,10 @@ public class DoctorAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Stun the doctor for 3 sec if he is trapped
-        if(speed == 0f)
-        {
-            if(stunCouldown > 2f) 
-            {
-                speed = 6f;
-            }else
-            {
-                stunCouldown += Time.time;
-            }
-        }
 
         if (objectives != null) {
             Decision();
         }
-
-        float memoPosX = movementVector.x;
-        float memoPosY = movementVector.y;
 
         movementVector.x = chosenDirectionX  * this.speed;
         movementVector.y = chosenDirectionY  * this.speed;
@@ -136,17 +123,10 @@ public class DoctorAI : MonoBehaviour
                 chosenDirectionY = 0;
             }
         }
-    }
 
     float Distance(Vector2 point)
     {
         return Mathf.Sqrt(Mathf.Pow(rigidbody.position.x - point.x, 2) + Mathf.Pow(rigidbody.position.y - point.y, 2));
-    }
-
-    void OnCollisionEnter2D(Collision2D infoCollision)
-    {
-        Debug.Log("hit");
-        
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         originalRotation = transform.rotation;
     }
 
-     // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         //Move function
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Camera follow player
-        mainCamera.transform.position = new Vector3 (transform.position.x, transform.position.y, -10f);
+        mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
 
     }
 

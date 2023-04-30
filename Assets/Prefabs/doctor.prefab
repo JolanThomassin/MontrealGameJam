@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 3437835307560164735}
   - component: {fileID: 5952253834116504416}
   - component: {fileID: 6493701065197605660}
-  - component: {fileID: 6102633577515191394}
-  - component: {fileID: -35834655462818806}
+  - component: {fileID: 1716153720563558315}
   - component: {fileID: 4030423077390286501}
   - component: {fileID: 7941790669942753504}
   - component: {fileID: -793824682005345342}
@@ -77,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: -922953311
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 147934129e7e32b4296963b4ed8d1b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17f69d5233d8185438e4dde20b0e94c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,6 +102,23 @@ MonoBehaviour:
   PV: 1000
   levelGenerator: {fileID: 0}
   objectives: []
+--- !u!114 &1716153720563558315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491594481325821317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f48b7e53f8467c4cb31136e03ddbecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  isInfected: 1
+  isTrapped: 0
+  isDied: 0
+  HPText: {fileID: 8871344008334192582, guid: 871786f515037184da6bfd5a5a1e0479, type: 3}
 --- !u!50 &4030423077390286501
 Rigidbody2D:
   serializedVersion: 4

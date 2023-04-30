@@ -18,7 +18,7 @@ public class PlagueCircle : MonoBehaviour
 
     public void Awake() {
         // Trouver l'objet de l'image
-        myImage = GameObject.Find("InfectionProgression").GetComponent<Image>();
+        //myImage = GameObject.Find("InfectionProgression").GetComponent<Image>();
     }
 
     public void Update() {
