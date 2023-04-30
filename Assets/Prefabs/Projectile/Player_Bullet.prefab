@@ -185,10 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8f4aa1ae16d4c90ac21ed0f2cacc97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 0
   speed: 20
   animator: {fileID: 4497383734388207759}
-  direction: {x: -2, y: 0, z: 0}
+  direction: {x: 0, y: -2, z: 0}
   maxDistance: 10
   moveOnStart: 1
   test: 0
