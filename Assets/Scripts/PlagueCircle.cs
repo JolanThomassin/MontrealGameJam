@@ -54,12 +54,44 @@ public class PlagueCircle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        inRange = true;
+        if (other.gameObject.tag == "Doctor") {
+            inRange = true;
+        }
+        if (other.gameObject.tag == "Villager") {
+            other.gameObject.GetComponent<VillagerAI>().plegued = true;
+            if(other.gameObject.transform.position.x >= transform.position.x) {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionX = 1;
+                }else {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionX = -1;
+                }
+
+                if(other.gameObject.transform.position.y >= transform.position.y) {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionY = 1;
+                }else {
+                    other.gameObject.GetComponent<VillagerAI>().chosenDirectionY = -1;
+                }
+        }
+        
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Villager") {
+            other.gameObject.GetComponent<VillagerAI>().PV--;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        inRange = false;
+        if (other.gameObject.tag == "Doctor") {
+            inRange = false;
+        }
+        if (other.gameObject.tag == "Villager") {
+            other.gameObject.GetComponent<VillagerAI>().plegued = false;
+        }
+
+        
+        
     }
 
     private void ApplyHit() {

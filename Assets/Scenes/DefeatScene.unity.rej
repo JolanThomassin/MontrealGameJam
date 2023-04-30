@@ -1,0 +1,77 @@
+diff a/Assets/Scenes/DefeatScene.unity b/Assets/Scenes/DefeatScene.unity	(rejected hunks)
+@@ -123,6 +123,75 @@
+     debug:
+       m_Flags: 0
+   m_NavMeshData: {fileID: 0}
++<<<<<<< HEAD
++=======
++--- !u!1001 &34264530
++PrefabInstance:
++  m_ObjectHideFlags: 0
++  serializedVersion: 2
++  m_Modification:
++    m_TransformParent: {fileID: 0}
++    m_Modifications:
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_RootOrder
++      value: 11
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalPosition.x
++      value: 4.94
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalPosition.y
++      value: 2.31
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalPosition.z
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalRotation.w
++      value: 1
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalRotation.x
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalRotation.y
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalRotation.z
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalEulerAnglesHint.x
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalEulerAnglesHint.y
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 5395421336602763219, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_LocalEulerAnglesHint.z
++      value: 0
++      objectReference: {fileID: 0}
++    - target: {fileID: 6479765322152849439, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: m_Name
++      value: Villager (6)
++      objectReference: {fileID: 0}
++    - target: {fileID: 8501465050762541913, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++      propertyPath: mainCamera
++      value: 
++      objectReference: {fileID: 277016603}
++    m_RemovedComponents: []
++  m_SourcePrefab: {fileID: 100100000, guid: 29c9614683d8c5c448afdc0bb5375538, type: 3}
++--- !u!20 &277016603 stripped
++Camera:
++  m_CorrespondingSourceObject: {fileID: 2872830659905702439, guid: 4d6f3181dcc1e214d9a9285b858acee8, type: 3}
++  m_PrefabInstance: {fileID: 5871956756072965401}
++  m_PrefabAsset: {fileID: 0}
++>>>>>>> VillageoisAI_and_Camera
+ --- !u!1001 &345761643
+ PrefabInstance:
+   m_ObjectHideFlags: 0

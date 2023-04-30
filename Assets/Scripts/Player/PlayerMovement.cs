@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Quaternion originalRotation;
 
+    public Camera mainCamera;
+
 
     void Start()
     {
@@ -110,6 +112,9 @@ public class PlayerMovement : MonoBehaviour
         {
             hasDashed = false; // Reset the flag when the cooldown is over
         }
+
+        //Camera follow player
+        mainCamera.transform.position = new Vector3 (transform.position.x, transform.position.y, -10f);
 
     }
 
