@@ -614,7 +614,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1266,7 +1266,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b371eac16768b174daa11ac88f8db702, type: 3}
     m_FontSize: 134
     m_FontStyle: 1
     m_BestFit: 0
@@ -2830,7 +2830,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 74a5091d8707f334b9a5c31ef71a64ba, type: 3}
+    m_Font: {fileID: 12800000, guid: 78f708137f87dae4482e7328e28a6d48, type: 3}
     m_FontSize: 174
     m_FontStyle: 0
     m_BestFit: 0
@@ -4088,14 +4088,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.36605135, g: 0.41509432, b: 0.346173, a: 1}
+  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cfc55360c93874c4089eb9f76cfb0b6d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d9226735a55c1743b9a5fde824e2f97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4247,7 +4247,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b371eac16768b174daa11ac88f8db702, type: 3}
     m_FontSize: 93
     m_FontStyle: 2
     m_BestFit: 0
@@ -4260,7 +4260,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Jolan Thomassin - Dev\nMano\xEBl Nohra - Dev\nBaptiste Girard - Dev\nRui
-    Guo - Dev\nJian Jia - Dev\nMike Herrera - Sound Design\nConor Geoghegan - Art"
+    Guo - Dev\nJian Jia - Dev\nMike Herrera - SFX/Music\nConor Geoghegan - Art"
 --- !u!222 &1841169205
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4775,7 +4775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4783,7 +4783,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b371eac16768b174daa11ac88f8db702, type: 3}
     m_FontSize: 49
     m_FontStyle: 0
     m_BestFit: 0
