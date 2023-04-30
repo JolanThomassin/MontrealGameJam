@@ -16,7 +16,6 @@ public class DoctorHP : MonoBehaviour
     Rigidbody2D rb;
 
     public Text HPText;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,8 +34,8 @@ public class DoctorHP : MonoBehaviour
         if (hp < 0)
         {
             isDied = true;
+            
             StopAllCoroutines();
-            Destroy(gameObject);
         }
         HPText.text = hp.ToString();
     }

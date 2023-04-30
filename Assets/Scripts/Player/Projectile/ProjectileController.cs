@@ -18,13 +18,23 @@ namespace Assets.Prefabs.Projectile
         [SerializeField]
         private float bulletSpeed = 2f;
         // Use this for initialization
-
+        [SerializeField]
+        private GameObject skill;
+        [SerializeField]
+        private GameObject anchor;
+        private Vector2 skillGoBack = new Vector2(0, 65f);
         // Update is called once per frame
         void Update()
         {
+            if(timer<0.1)
+            {
+                skill.transform.position = (Vector2)skill.transform.position+skillGoBack;
+            }
             timer += Time.deltaTime;
             if (timer > 1)
-                timer = 1.1f;
+            {
+                timer = 1 + 1f;
+            }
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
@@ -70,6 +80,7 @@ namespace Assets.Prefabs.Projectile
                 }
                 else if (shootMouse)
                 {
+                    skill.transform.position = anchor.transform.position;
                     bullet1.setDirection(shootDirection);
                     bullet1.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
                     bullet1.transform.rotation *= Quaternion.LookRotation(Vector3.forward, shootDirection);

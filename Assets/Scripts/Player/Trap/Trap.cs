@@ -13,6 +13,7 @@ public class Trap : MonoBehaviour
     private int maxNumberOfTraps = 3;
     [SerializeField]
     private int numberOfTraps;
+ 
 
     // Update is called once per frame
     void Update()
@@ -26,6 +27,6 @@ public class Trap : MonoBehaviour
     {
         numberOfTraps += 1;
         Vector3 trapPosition = transform.position;
-        GameObject trap = Instantiate(trapPrefab, trapPosition, Quaternion.identity);   
+        GameObject trap = Instantiate(trapPrefab, trapPosition, Quaternion.identity);
     }
 }

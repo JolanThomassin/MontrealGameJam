@@ -18,6 +18,10 @@ public class Radar : MonoBehaviour
 
     bool cooldown = false;
 
+    [SerializeField]
+    private GameObject skill;
+    [SerializeField]
+    private GameObject anchor;
     // Update is called once per frame
     void Update()
     {

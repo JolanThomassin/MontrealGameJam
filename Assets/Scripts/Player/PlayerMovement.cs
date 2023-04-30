@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera mainCamera;
 
-
     public void PlagueStart()
     {
         //Store the rigid component at the start of the game

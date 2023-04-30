@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -922953311
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17f69d5233d8185438e4dde20b0e94c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 238f861df46e6fe418a79705ce08ccac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PV: 1000
+  gameOverLoss: {fileID: 7487391667670929238, guid: 8800953f6098c36439642226ae210c3c, type: 3}
+  gameOverWin: {fileID: 8520137068646094203, guid: 22e01d3c7c2654442bd0d64caf0da150, type: 3}
   levelGenerator: {fileID: 0}
   objectives: []
 --- !u!114 &1716153720563558315
@@ -119,6 +121,7 @@ MonoBehaviour:
   isTrapped: 0
   isDied: 0
   HPText: {fileID: 8871344008334192582, guid: 871786f515037184da6bfd5a5a1e0479, type: 3}
+  gameOverWin: {fileID: 8520137068646094203, guid: 22e01d3c7c2654442bd0d64caf0da150, type: 3}
 --- !u!50 &4030423077390286501
 Rigidbody2D:
   serializedVersion: 4

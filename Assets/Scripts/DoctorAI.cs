@@ -16,10 +16,12 @@ public class DoctorAI : MonoBehaviour
     private int chosenDirectionY;
     private int timerDecision = 0;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     private CircleCollider2D circleCollider; 
     Vector2 movementVector = Vector2.zero;
 
+    public GameObject gameOverLoss;
+    public GameObject gameOverWin;
     public LevelGenerator levelGenerator;
 
     public List<GameObject> objectives;
@@ -41,7 +43,7 @@ public class DoctorAI : MonoBehaviour
     
     public void DoctorStart()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
        
         objectives = levelGenerator.listPills;
@@ -84,11 +86,13 @@ public class DoctorAI : MonoBehaviour
             switchMur = false;
         } 
     
-        rigidbody.velocity = movementVector * this.speed;
+        rb.velocity = movementVector * this.speed;
 
         //WIN CONGRATS !!!!
         //Debug.Log(PV);
         if(PV <= 0) {
+            if (gameOverWin != null)
+                gameOverWin = (GameObject)Instantiate(gameOverWin);
             Destroy(gameObject);
             nbrPillCollected = 10;
             levelGenerator.PrintDoctorDead();
@@ -100,7 +104,7 @@ public class DoctorAI : MonoBehaviour
     void Decision() {
             if(nbrPillCollected < 10) {
                 Vector2 v1 = objectiveMinimum.transform.position;
-                Vector2 v2 = rigidbody.position;
+                Vector2 v2 = rb.position;
 
                 if(v1.x > v2.x) {
                     chosenDirectionX = 1;
@@ -126,7 +130,7 @@ public class DoctorAI : MonoBehaviour
 
     float Distance(Vector2 point)
     {
-        return Mathf.Sqrt(Mathf.Pow(rigidbody.position.x - point.x, 2) + Mathf.Pow(rigidbody.position.y - point.y, 2));
+        return Mathf.Sqrt(Mathf.Pow(rb.position.x - point.x, 2) + Mathf.Pow(rb.position.y - point.y, 2));
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -158,15 +162,15 @@ public class DoctorAI : MonoBehaviour
                     rolls++;
                 }
             }else {
-                //Destroy(gameObject);
-
-                //lose loser
+                if(gameOverLoss != null)
+                {
+                    gameOverLoss = (GameObject)Instantiate(gameOverLoss);
+                }
             }
 
         }
         if (other.gameObject.tag == "Plague") {
             PV--;
-            Debug.Log(PV);
         }
     }
 }

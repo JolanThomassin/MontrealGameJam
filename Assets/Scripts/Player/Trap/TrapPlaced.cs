@@ -11,7 +11,7 @@ public class TrapPlaced : MonoBehaviour
             collision.gameObject.GetComponent<DoctorHP>().GetTrapped(gameObject);
             //Animation and destroy
         }
-        else if(collision.gameObject.tag.Equals("Citizen"))
+        else if(collision.gameObject.tag.Equals("Villager"))
         {
             collision.gameObject.GetComponent<VillagerAI>().GetTrapped(gameObject);
         }
