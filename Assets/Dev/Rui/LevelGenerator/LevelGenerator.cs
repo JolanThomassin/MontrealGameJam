@@ -10,6 +10,11 @@ public class LevelGenerator : SerializedMonoBehaviour
     public int Widith;
     public int Height;
     public int NumberObstacle;
+
+    public int NumberOfPills;
+    public GameObject pillsPrefab;
+    public List<GameObject> listPills;
+
     public int NumberAttemptMax;
     public int MinDistanceBetweenObstacleWall;
     public int MinDistanceBetweenObstaclePoint;
@@ -27,8 +32,10 @@ public class LevelGenerator : SerializedMonoBehaviour
         Clear();
         GenerateRoom(Vector2Int.zero, Widith, Height);
         ExtendLevel();
+        GeneratePills();
         GenerateWall();
         GenerateObstaclePoint();
+        
         ExtendObstacle();
         tilePainter.Paint(this);
     }
@@ -113,7 +120,42 @@ public class LevelGenerator : SerializedMonoBehaviour
         }
     }
 
+    private void GeneratePills()
+    {
+        Debug.Log("GenPil");
+        System.Random random = new System.Random();
 
+        foreach (GameObject p in listPills)
+        {
+            Destroy(p);
+        }
+        listPills.Clear();
+
+        for (int j = 0; j < NumberOfPills; j++)
+        {
+            bool pointFound = false;
+            int attempts = 0;
+            
+            while (listPills.Count() < NumberOfPills)
+            {
+                attempts++;
+                int index = random.Next(PathPosition.Count);
+                Vector2Int newPoint = PathPosition.ElementAt(index);
+
+                if (IsPointFarEnough(newPoint))
+                {
+                    Vector3 newPosition = new Vector3(newPoint.x, newPoint.y, 0);
+
+                    GameObject newPill = Instantiate(pillsPrefab, newPosition, Quaternion.identity);
+                    listPills.Add(newPill); // Ajouter la nouvelle instance à la liste
+                }
+            }
+        }
+    }
+
+    
+
+        
     private bool IsPointFarEnough(Vector2 newPoint)
     {
         foreach (Vector2 existingPoint in ObstaclePosition)

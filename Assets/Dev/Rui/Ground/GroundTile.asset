@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GroundTile
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: e89cd72af02c58d41a4a4338aeca0e7e, type: 3}
-  m_DefaultGameObject: {fileID: 7373508237042610768, guid: 1b501197f256827478d38d582b638fc8, type: 3}
+  m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 2
   m_TilingRules: []
