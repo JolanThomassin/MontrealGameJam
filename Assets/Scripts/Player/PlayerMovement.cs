@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public Camera mainCamera;
 
 
-    void Start()
+    public void PlagueStart()
     {
         //Store the rigid component at the start of the game
         rigidbody2d = GetComponent<Rigidbody2D>();

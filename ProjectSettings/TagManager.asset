@@ -8,6 +8,8 @@ TagManager:
   - Doctor
   - Villager
   - Pill
+  - Wall
+  - Plague
   layers:
   - Default
   - TransparentFX

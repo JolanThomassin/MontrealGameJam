@@ -12,9 +12,14 @@ public class LevelGenerator : SerializedMonoBehaviour
     public int NumberObstacle;
 
     public int NumberOfPills;
+    public int NumberOfVillagers;
     public GameObject pillsPrefab;
     public GameObject doctorPrefab;
+    public GameObject plaguePrefab;
+    public GameObject villagePrefab;
+
     public List<GameObject> listPills;
+    public List<GameObject> listVillagers;
 
     public int NumberAttemptMax;
     public int MinDistanceBetweenObstacleWall;
@@ -23,6 +28,8 @@ public class LevelGenerator : SerializedMonoBehaviour
     HashSet<Vector2Int> PathPosition = new HashSet<Vector2Int>();
     HashSet<Vector2Int> WallPosition = new HashSet<Vector2Int>();
     HashSet<Vector2Int> ObstaclePosition = new HashSet<Vector2Int>();
+
+    public Camera mainCamera;
 
     [SerializeField]
     private TilePainter tilePainter;
@@ -123,9 +130,9 @@ public class LevelGenerator : SerializedMonoBehaviour
 
     private void GeneratePills()
     {
-        Debug.Log("GenPil");
-        System.Random random = new System.Random();
 
+        System.Random random = new System.Random();
+        //Pillules
         foreach (GameObject p in listPills)
         {
             Destroy(p);
@@ -155,7 +162,38 @@ public class LevelGenerator : SerializedMonoBehaviour
 
         
         doctorApparition();
+        plagueApparition();
 
+        //Villageois
+        foreach (GameObject p in listVillagers)
+        {
+            Destroy(p);
+        }
+        listVillagers.Clear();
+
+        for (int j = 0; j < NumberOfVillagers; j++)
+        {
+            bool pointFound = false;
+            int attempts = 0;
+            
+            while (listVillagers.Count() < NumberOfVillagers)
+            {
+                attempts++;
+                int index = random.Next(PathPosition.Count);
+                Vector2Int newPoint = PathPosition.ElementAt(index);
+
+                if (IsPointFarEnough(newPoint))
+                {
+                    Vector3 newPosition = new Vector3(newPoint.x, newPoint.y, 0);
+
+                    GameObject newVillager = Instantiate(villagePrefab, newPosition, Quaternion.identity);
+                    VillagerAI villagerAI = newVillager.GetComponent<VillagerAI>();
+                    villagerAI.mainCamera = mainCamera;
+
+                    listVillagers.Add(newVillager); // Ajouter la nouvelle instance à la liste
+                }
+            }
+        }
 
     }
 
@@ -164,12 +202,25 @@ public class LevelGenerator : SerializedMonoBehaviour
         //Apparition du doctor
         int index = random.Next(PathPosition.Count);
         Vector2Int newPoint = PathPosition.ElementAt(index);
-        Vector3 newPosition = new Vector3(0, 0, 0);
+        Vector3 newPosition = new Vector3(newPoint.x, newPoint.y, 0);
         GameObject newDoctor = Instantiate(doctorPrefab, newPosition, Quaternion.identity);
 
         DoctorAI doctorAI = newDoctor.GetComponent<DoctorAI>();
         doctorAI.levelGenerator = this;
         doctorAI.DoctorStart();
+    }
+
+    void plagueApparition() {
+        System.Random random = new System.Random();
+        //Apparition du doctor
+        int index = random.Next(PathPosition.Count);
+        Vector2Int newPoint = PathPosition.ElementAt(index);
+        Vector3 newPosition = new Vector3(newPoint.x, newPoint.y, 0);
+        GameObject newPlague = Instantiate(plaguePrefab, newPosition, Quaternion.identity);
+
+        PlayerMovement plague = newPlague.GetComponent<PlayerMovement>();
+        plague.mainCamera = mainCamera;
+        plague.PlagueStart();
     }
 
     
@@ -282,5 +333,9 @@ public class LevelGenerator : SerializedMonoBehaviour
         PathPosition.Clear();
         WallPosition.Clear();
         ObstaclePosition.Clear();
+    }
+
+    public void PrintDoctorDead() {
+        Debug.Log("IL EST MORT");
     }
 }

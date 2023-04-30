@@ -23,40 +23,11 @@ public class PlagueCircle : MonoBehaviour
 
     public void Update() {
 
-        if (inRange && !hasHit && hitCooldownTimer <= 0f) {
-
-            // Apply the hit and start the hit timer
-            ApplyHit();
-            hasHit = true;
-            hitTimer = hitDuration;
-            
-        }
-
-        if (hasHit) {
-
-            // Update the hit timer
-            hitTimer -= Time.deltaTime;
-            if (hitTimer <= 0f) {
-                // Reset the hit flag and start the hit cooldown timer
-                hasHit = false;
-                hitCooldownTimer = hitCooldown;
-            }
-
-        } else if (hitCooldownTimer > 0f) {
-
-            // Update the hit cooldown timer
-            hitCooldownTimer -= Time.deltaTime;
-
-        }
-
     }
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Doctor") {
-            inRange = true;
-        }
         if (other.gameObject.tag == "Villager") {
             other.gameObject.GetComponent<VillagerAI>().plegued = true;
             if(other.gameObject.transform.position.x >= transform.position.x) {
@@ -79,13 +50,13 @@ public class PlagueCircle : MonoBehaviour
         if (other.gameObject.tag == "Villager") {
             other.gameObject.GetComponent<VillagerAI>().PV--;
         }
+        if (other.gameObject.tag == "Doctor") {
+            other.gameObject.GetComponent<DoctorAI>().PV--;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Doctor") {
-            inRange = false;
-        }
         if (other.gameObject.tag == "Villager") {
             other.gameObject.GetComponent<VillagerAI>().plegued = false;
         }

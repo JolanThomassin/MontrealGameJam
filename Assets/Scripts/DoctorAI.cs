@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 public class DoctorAI : MonoBehaviour
 {
 
-    private float speed = 6f;
+    private float speed = 1f;
+    public int PV;
 
     //-1 = Gauche, 0 = Bouge pas, 1 = Droite
     private int chosenDirectionX;
@@ -28,6 +29,8 @@ public class DoctorAI : MonoBehaviour
     int nbrAttenteBlocage = 0;
 
     int nbrPillCollected = 0;
+
+    bool switchMur = false;
 
     //private Animator animator;
     //private SpriteRenderer SpriteRenderer;
@@ -53,6 +56,8 @@ public class DoctorAI : MonoBehaviour
         }
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -66,37 +71,35 @@ public class DoctorAI : MonoBehaviour
 
         movementVector.x = chosenDirectionX  * this.speed;
         movementVector.y = chosenDirectionY  * this.speed;
+        
 
-        movementVector.Normalize();
-
-        if(memoPosX == movementVector.x) {
-            nbrAttenteBlocage++;
-        }else if(memoPosY == movementVector.y) {
-            nbrAttenteBlocage++;
-        }else if(nbrAttenteBlocage != 0) {
-            nbrAttenteBlocage--;
-        }
-
-        if(nbrAttenteBlocage > 300) {
-            tempsDeBlocage++;
-            transform.localScale = new Vector3(1.2f,1.2f,1.2f);
-        }
-
-        if(tempsDeBlocage > 0 && tempsDeBlocage < 30) {
+        if(switchMur) {
             circleCollider.enabled = false;
-        }else if (tempsDeBlocage >= 30 || tempsDeBlocage == 0) {
-            tempsDeBlocage = 0;
-            transform.localScale = new Vector3(1,1,1);
-            circleCollider.enabled = true;
+            transform.localScale = new Vector3(1.2f,1.2f,1.2f);
+            tempsDeBlocage++;
         }
-
+        if (tempsDeBlocage > 200) {
+            circleCollider.enabled = true;
+            transform.localScale = new Vector3(1,1,1);
+            tempsDeBlocage = 0;
+            switchMur = false;
+        } 
+    
         rigidbody.velocity = movementVector * this.speed;
+
+        //WIN CONGRATS !!!!
+        //Debug.Log(PV);
+        if(PV <= 0) {
+            Destroy(gameObject);
+            nbrPillCollected = 10;
+            levelGenerator.PrintDoctorDead();
+        }
         
         
     }
 
     void Decision() {
-            if(nbrPillCollected < 4) {
+            if(nbrPillCollected < 10) {
                 Vector2 v1 = objectiveMinimum.transform.position;
                 Vector2 v2 = rigidbody.position;
 
@@ -124,14 +127,24 @@ public class DoctorAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D infoCollision) {
         Debug.Log("hit");
-        if (infoCollision.gameObject.tag == "Pill") {
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("1F");
+        if (other.gameObject.tag == "Wall") {
+            Debug.Log("2F");
+            switchMur = true;
+        }
+        if (other.gameObject.tag == "Pill") {
 
             objectives.RemoveAt(indiceTab);
-            Destroy(infoCollision.gameObject);
+            Destroy(other.gameObject);
             nbrPillCollected++;
             
 
-            if(nbrPillCollected < 4) {
+            if(nbrPillCollected < 10) {
                 objectiveMinimum = objectives[0];
                 indiceTab = 0;
                 int rolls = 0;
@@ -144,9 +157,15 @@ public class DoctorAI : MonoBehaviour
                     rolls++;
                 }
             }else {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+
+                //lose loser
             }
             
+        }
+        if (other.gameObject.tag == "Plague") {
+            PV--;
+            Debug.Log(PV);
         }
     }
 
