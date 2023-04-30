@@ -10,6 +10,9 @@ public class LevelGenerator : SerializedMonoBehaviour
     public int Widith;
     public int Height;
     public int NumberObstacle;
+    public int NumberAttemptMax;
+    public int MinDistanceBetweenObstacleWall;
+    public int MinDistanceBetweenObstaclePoint;
 
     public int NumberOfPills;
     public int NumberOfVillagers;
@@ -155,7 +158,7 @@ public class LevelGenerator : SerializedMonoBehaviour
                     Vector3 newPosition = new Vector3(newPoint.x, newPoint.y, 0);
 
                     GameObject newPill = Instantiate(pillsPrefab, newPosition, Quaternion.identity);
-                    listPills.Add(newPill); // Ajouter la nouvelle instance à la liste
+                    listPills.Add(newPill); // Ajouter la nouvelle instance � la liste
                 }
             }
         }
@@ -190,7 +193,7 @@ public class LevelGenerator : SerializedMonoBehaviour
                     VillagerAI villagerAI = newVillager.GetComponent<VillagerAI>();
                     villagerAI.mainCamera = mainCamera;
 
-                    listVillagers.Add(newVillager); // Ajouter la nouvelle instance à la liste
+                    listVillagers.Add(newVillager); // Ajouter la nouvelle instance � la liste
                 }
             }
         }
