@@ -7,7 +7,7 @@ public class PillsScript : MonoBehaviour
     private GameManagerScript gameManager;
 
     public void Start() {
-        gameManager = GameObject.Find("GameManager (GameObject)").GetComponent<GameManagerScript>();
+        gameManager = GameObject.Find("Manager").GetComponent<GameManagerScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
