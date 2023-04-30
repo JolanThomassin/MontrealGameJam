@@ -58,13 +58,14 @@ public class Player_Bullet : Bullet
         //}
         //if (collision.gameObject.tag != "Player")
         //    stop();
-        if(collision.gameObject.tag.Equals("Doctor"))
-        {
-            stop();
-            //Doctor script to get infected and slowed
-        }
         if (collision.gameObject.name == "TilemapWall")
         {
+            stop();
+        }
+
+        if (collision.gameObject.tag == "Doctor")
+        {
+            collision.GetComponent<DoctorHP>().LoseHp(damage);
             stop();
         }
     }
