@@ -55,9 +55,10 @@ namespace Assets.Prefabs.Projectile
             if (Input.GetKeyDown(KeyCode.Space) && timer > cooldown)
             {
                 var shootDirection = Input.mousePosition;
-               // shootDirection.z = 0.0f;
                 shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+                Debug.Log(shootDirection);
                 shootDirection = (shootDirection - transform.position);
+              
                 shootDirection.Normalize();
                 timer = 0f;
                 var bullet1 = Instantiate(bullet, player.transform.position, player.transform.rotation);
