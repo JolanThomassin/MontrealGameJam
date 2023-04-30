@@ -13,6 +13,7 @@ public class Trap : MonoBehaviour
     private int maxNumberOfTraps = 3;
     [SerializeField]
     private int numberOfTraps;
+    [SerializeField] private AudioClip _clip;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +25,7 @@ public class Trap : MonoBehaviour
 
     void PlaceTrap()
     {
+        SoundManager.Instance.PlaySoundEffects(_clip);
         numberOfTraps += 1;
         Vector3 trapPosition = transform.position;
         GameObject trap = Instantiate(trapPrefab, trapPosition, Quaternion.identity);   

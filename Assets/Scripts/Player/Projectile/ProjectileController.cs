@@ -12,6 +12,7 @@ namespace Assets.Prefabs.Projectile
 
         public bool shootFacing = false;
         public bool shootMouse = true;
+        [SerializeField] private AudioClip _clip;
 
         Vector3 rotation = new Vector3(0, 0, 0);
 
@@ -52,6 +53,7 @@ namespace Assets.Prefabs.Projectile
 
             if (Input.GetKeyDown(KeyCode.Space) && timer > cooldown)
             {
+                SoundManager.Instance.PlaySoundEffects(_clip);
                 var shootDirection = Input.mousePosition;
                 shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
                 shootDirection = (shootDirection - transform.position);

@@ -32,10 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private Quaternion originalRotation;
 
     public Camera mainCamera;
-
-    public Animator animator;
-
-           
+ public Animator animator;
 
     public void PlagueStart()
     {
@@ -43,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
 
         originalRotation = transform.rotation;
-        if (!animator)
-            animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -68,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Create a new vector of those input
         Vector2 movement = new Vector2(horizontal, vertical);
-        if (horizontal < 0)
+if (horizontal < 0)
         {
             animator.SetBool("WalkLeft", true);
             animator.SetBool("WalkRight", false);

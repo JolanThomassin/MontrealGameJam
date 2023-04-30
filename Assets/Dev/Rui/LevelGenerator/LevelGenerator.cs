@@ -214,7 +214,7 @@ public class LevelGenerator : SerializedMonoBehaviour
         //Apparition du doctor
         int index = random.Next(PathPosition.Count);
         Vector2Int newPoint = PathPosition.ElementAt(index);
-        Vector3 newPosition = new Vector3(newPoint.x, newPoint.y, 0);
+        Vector3 newPosition = new Vector3(newPoint.x + 50, newPoint.y + 50, 0);
         GameObject newDoctor = Instantiate(doctorPrefab, newPosition, Quaternion.identity);
 
         DoctorAI doctorAI = newDoctor.GetComponent<DoctorAI>();

@@ -18,6 +18,8 @@ public class Radar : MonoBehaviour
 
     bool cooldown = false;
 
+    [SerializeField] private AudioClip _clip;
+
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +31,7 @@ public class Radar : MonoBehaviour
 
     public void EnableProbes()
     {
+        SoundManager.Instance.PlaySoundEffects(_clip);
         StartCoroutine(spawnProbes());
 
     }

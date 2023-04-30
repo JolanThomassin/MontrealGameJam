@@ -77,7 +77,7 @@ public class VillagerAI : MonoBehaviour
         if(!dead) {
             if(plegued) {
 
-                gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
                 deathByPlague += Time.deltaTime;
                 mainCamera.orthographicSize+=Time.deltaTime / 50;
                 //  reduce shadow
@@ -93,7 +93,9 @@ public class VillagerAI : MonoBehaviour
                     speed = speed/10f;
                 }
             }else {
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
                 if(deathByPlague > 0f) {
+
                     deathByPlague-= Time.deltaTime*2;
                     mainCamera.orthographicSize-=Time.deltaTime/50*2;
                     //  increase shadow
@@ -109,7 +111,7 @@ public class VillagerAI : MonoBehaviour
                 }
             }
         }else if(reanimation) {
-            gameObject.GetComponent<Renderer>().material.color = new Color(0, 200, 0);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 200, 0);
             if(deathByPlague > 0f) {
                 deathByPlague-= Time.deltaTime*2;
                 mainCamera.orthographicSize-=Time.deltaTime/50*2;

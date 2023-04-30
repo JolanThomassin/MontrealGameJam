@@ -30,6 +30,7 @@ public class DoctorAI : MonoBehaviour
     int nbrAttenteBlocage = 0;
 
     int nbrPillCollected = 0;
+    public int pillsNeeded = 30;
 
     bool switchMur = false;
 
@@ -98,7 +99,7 @@ public class DoctorAI : MonoBehaviour
     }
 
     void Decision() {
-            if(nbrPillCollected < 10) {
+            if(nbrPillCollected < pillsNeeded) {
                 Vector2 v1 = objectiveMinimum.transform.position;
                 Vector2 v2 = rigidbody.position;
 
@@ -141,9 +142,13 @@ public class DoctorAI : MonoBehaviour
             objectives.RemoveAt(indiceTab);
             Destroy(other.gameObject);
             nbrPillCollected++;
+            SoundManager soundManager = GameObject.Find("Sound Manager").GetComponent<SoundManager>();
+            if (soundManager != null) {
+                soundManager.CheckPhase(nbrPillCollected, pillsNeeded);
+            }
 
 
-            if(nbrPillCollected < 10) {
+            if(nbrPillCollected < pillsNeeded) {
                 objectiveMinimum = objectives[0];
                 indiceTab = 0;
                 int rolls = 0;
