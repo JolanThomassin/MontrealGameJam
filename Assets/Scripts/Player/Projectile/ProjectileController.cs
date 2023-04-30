@@ -13,7 +13,7 @@ namespace Assets.Prefabs.Projectile
         public bool shootFacing = false;
         public bool shootMouse = true;
 
-        Vector3 rotation = new Vector3(0,0,0);
+        Vector3 rotation = new Vector3(0, 0, 0);
 
         [SerializeField]
         private float bulletSpeed = 2f;
@@ -22,7 +22,7 @@ namespace Assets.Prefabs.Projectile
         // Update is called once per frame
         void Update()
         {
-            timer+=Time.deltaTime;
+            timer += Time.deltaTime;
             if (timer > 1)
                 timer = 1.1f;
 
@@ -34,7 +34,7 @@ namespace Assets.Prefabs.Projectile
             {
                 bullet.setDirection(new Vector3(0, bulletSpeed, 0));
                 rotation = new Vector3(0, 0, 90);
-              
+
             }
             if (vertical < 0)
             {
@@ -57,11 +57,11 @@ namespace Assets.Prefabs.Projectile
                 var shootDirection = Input.mousePosition;
                 shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
                 shootDirection = (shootDirection - transform.position);
-              
+
                 shootDirection.Normalize();
                 timer = 0f;
                 var bullet1 = Instantiate(bullet, player.transform.position, player.transform.rotation);
-               // bullet1.transform.rotation = Quaternion.Euler(rotation);
+                // bullet1.transform.rotation = Quaternion.Euler(rotation);
                 // bullet1.setDirection(bullet.direction);
                 //var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(Quaternion.LookRotation(Vector3.forward, movement))* player.transform.up;
                 var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(player.transform.rotation) * player.transform.up;
@@ -76,7 +76,7 @@ namespace Assets.Prefabs.Projectile
                     bullet1.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
                     bullet1.transform.rotation *= Quaternion.LookRotation(Vector3.forward, shootDirection);
                 }
-                   
+
             }
         }
     }

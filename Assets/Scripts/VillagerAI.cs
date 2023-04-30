@@ -22,8 +22,11 @@ public class VillagerAI : MonoBehaviour
     private float deathByPlague = 0f;
     public bool dead;
     public bool reanimation = false;
-
+    public bool isTrapped = false;
     public Camera mainCamera;
+
+    public float Speed { get => speed; set => speed = value; }
+    private float stunCouldown = 0f;
 
 
 
@@ -37,7 +40,20 @@ public class VillagerAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timerDecision%(500+randomFrequence) == 0) {
+        //Stun the villager for 3 sec if he is trapped
+        if (speed == 0f)
+        {
+            if (stunCouldown > 2f)
+            {
+                speed = 0.5f;
+            }
+            else
+            {
+                stunCouldown += Time.time;
+            }
+        }
+
+        if (timerDecision%(500+randomFrequence) == 0) {
             chosenDirectionX = Random.Range(-1,2);
             chosenDirectionY = Random.Range(-1,2);
         }
@@ -135,4 +151,18 @@ public class VillagerAI : MonoBehaviour
                 }
         } 
         }
+    public void GetTrapped(GameObject trap, float duration = 3)
+    {
+        isTrapped = true;
+        StartCoroutine(TrapCoroutine(duration, trap));
+    }
+    IEnumerator TrapCoroutine(float duration, GameObject trap)
+    {
+        var curConstraints = rigidbody.constraints;
+        rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        yield return new WaitForSeconds(duration);
+        isTrapped = false;
+        rigidbody.constraints = curConstraints;
+        Destroy(trap);
+    }
 }

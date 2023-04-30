@@ -30,7 +30,7 @@ public class Radar : MonoBehaviour
     public void EnableProbes()
     {
         StartCoroutine(spawnProbes());
-        
+
     }
 
     IEnumerator spawnProbes()
@@ -41,7 +41,7 @@ public class Radar : MonoBehaviour
         for (float i = 0; i < numSpawns; ++i)
         {
             float angle = i / numSpawns * 2 * Mathf.PI;
-            
+
             var p = Instantiate(probe, transform.position, Quaternion.Euler(0, 0, angle));
             var vel = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             vel.Normalize();
@@ -59,7 +59,7 @@ public class Radar : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(duration);
-        foreach(var p in list)
+        foreach (var p in list)
         {
             Destroy(p);
         }

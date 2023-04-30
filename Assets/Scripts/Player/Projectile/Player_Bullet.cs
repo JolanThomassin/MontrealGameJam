@@ -60,6 +60,7 @@ public class Player_Bullet : Bullet
         //    stop();
         if(collision.gameObject.tag.Equals("Doctor"))
         {
+            stop();
             //Doctor script to get infected and slowed
         }
         if (collision.gameObject.name == "TilemapWall")

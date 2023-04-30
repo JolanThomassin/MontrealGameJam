@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -922953311
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -922953311
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 209976d96bff0ad4ab385943d020188e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -233,7 +233,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 679541231
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.08837208, g: 0.5566038, b: 0.05513528, a: 0.14901961}
@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 4666468310994103189}
   - component: {fileID: -8189705035503481932}
   - component: {fileID: -1594084228092451394}
+  - component: {fileID: 3709907832272265640}
   - component: {fileID: 8114454637207469993}
   m_Layer: 0
   m_Name: Plague
@@ -389,7 +390,7 @@ MonoBehaviour:
   dashSpeed: 30
   dashDuration: 0.1
   dashCooldown: 1
-  animator: {fileID: 1202034259}
+  mainCamera: {fileID: 0}
 --- !u!114 &-8189705035503481932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2.5
-  doctor: {fileID: 0}
+  doctor: {fileID: 2491594481325821317, guid: 46ff23a650e4fb74d96a2d199cbf2e9b, type: 3}
   doctorMask:
     serializedVersion: 2
     m_Bits: 64
@@ -426,7 +427,27 @@ MonoBehaviour:
   player: {fileID: 3684546703064435708}
   cooldown: 0.3
   timer: 0.5
+  shootFacing: 0
+  shootMouse: 1
   bulletSpeed: 2
+--- !u!114 &3709907832272265640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614996172302764519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18f4e1b9438baf4686ac0cd405a4bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotlightMat: {fileID: 2100000, guid: ee404156a1bb9e146b1963665cae03f0, type: 2}
+  probe: {fileID: 4390819353457112572, guid: 901e5caa17ae3d144b53f1590457f015, type: 3}
+  target: {fileID: 2491594481325821317, guid: 46ff23a650e4fb74d96a2d199cbf2e9b, type: 3}
+  numSpawns: 12
+  duration: 5
+  speed: 5
 --- !u!114 &8114454637207469993
 MonoBehaviour:
   m_ObjectHideFlags: 0

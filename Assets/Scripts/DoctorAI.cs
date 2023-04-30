@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -29,6 +30,9 @@ public class DoctorAI : MonoBehaviour
 
     int nbrPillCollected = 0;
 
+    public float Speed { get => speed; set => speed =value; }
+
+    private float stunCouldown = 0f;
     //private Animator animator;
     //private SpriteRenderer SpriteRenderer;
 
@@ -40,8 +44,8 @@ public class DoctorAI : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
 
         //objectives = levelGenerator.gameObject.listPills;
-
-        objectiveMinimum = objectives[0];
+        if(objectives!=null)
+            objectiveMinimum = objectives[0];
         int rolls = 0;
         foreach (GameObject objective in objectives)
         {
@@ -58,7 +62,20 @@ public class DoctorAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Stun the doctor for 3 sec if he is trapped
+        if(speed == 0f)
+        {
+            if(stunCouldown > 2f) 
+            {
+                speed = 6f;
+            }else
+            {
+                stunCouldown += Time.time;
+            }
+        }
 
+
+        //IA
         if (objectives != null)
         {
             Decision();

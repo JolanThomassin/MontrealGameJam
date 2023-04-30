@@ -12,7 +12,11 @@ public class PillsScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        gameManager.PickedPills();
-        Destroy(this.gameObject);
+        if(other.gameObject.tag.Equals("Doctor"))
+        {
+            gameManager.PickedPills();
+            Destroy(this.gameObject);
+        }
+       
     }
 }
