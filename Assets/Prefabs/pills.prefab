@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1812838143694903942}
   - component: {fileID: 7207867184128023705}
   - component: {fileID: 6389256407353315097}
+  - component: {fileID: 4011553901976284160}
   - component: {fileID: 8929733173525702734}
   m_Layer: 0
   m_Name: pills
@@ -100,6 +101,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &8929733173525702734
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445147138641234556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b087dc8c6b25d254fb487043812aec52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8929733173525702734
 Rigidbody2D:
   serializedVersion: 4

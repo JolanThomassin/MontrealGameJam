@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,7 +12,7 @@ public class DoctorAI : MonoBehaviour
 
     //-1 = Gauche, 0 = Bouge pas, 1 = Droite
     private int chosenDirectionX;
-     //-1 = Haut, 0 = Bouge pas, 1 = Bas
+    //-1 = Haut, 0 = Bouge pas, 1 = Bas
     private int chosenDirectionY;
     private int timerDecision = 0;
 
@@ -61,6 +62,17 @@ public class DoctorAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Stun the doctor for 3 sec if he is trapped
+        if(speed == 0f)
+        {
+            if(stunCouldown > 2f) 
+            {
+                speed = 6f;
+            }else
+            {
+                stunCouldown += Time.time;
+            }
+        }
 
         if (objectives != null) {
             Decision();
@@ -119,13 +131,20 @@ public class DoctorAI : MonoBehaviour
                     chosenDirectionY = 0;
                 }
             }
+            else
+            {
+                chosenDirectionY = 0;
+            }
+        }
     }
 
-    float Distance(Vector2 point) {
-        return Mathf.Sqrt(Mathf.Pow(rigidbody.position.x-point.x,2) + Mathf.Pow(rigidbody.position.y-point.y,2));
+    float Distance(Vector2 point)
+    {
+        return Mathf.Sqrt(Mathf.Pow(rigidbody.position.x - point.x, 2) + Mathf.Pow(rigidbody.position.y - point.y, 2));
     }
 
-    void OnCollisionEnter2D(Collision2D infoCollision) {
+    void OnCollisionEnter2D(Collision2D infoCollision)
+    {
         Debug.Log("hit");
         
     }
@@ -142,15 +161,17 @@ public class DoctorAI : MonoBehaviour
             objectives.RemoveAt(indiceTab);
             Destroy(other.gameObject);
             nbrPillCollected++;
-            
+
 
             if(nbrPillCollected < 10) {
                 objectiveMinimum = objectives[0];
                 indiceTab = 0;
                 int rolls = 0;
-                foreach (GameObject objective in objectives) {
-                    
-                    if(Distance(objectiveMinimum.transform.position) > Distance(objective.transform.position)) {
+                foreach (GameObject objective in objectives)
+                {
+
+                    if (Distance(objectiveMinimum.transform.position) > Distance(objective.transform.position))
+                    {
                         objectiveMinimum = objective;
                         indiceTab = rolls;
                     }
@@ -161,13 +182,11 @@ public class DoctorAI : MonoBehaviour
 
                 //lose loser
             }
-            
+
         }
         if (other.gameObject.tag == "Plague") {
             PV--;
             Debug.Log(PV);
         }
     }
-
-    
 }
