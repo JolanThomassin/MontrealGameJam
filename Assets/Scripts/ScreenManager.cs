@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ScreenManager : MonoBehaviour
     public GameObject mainMenuScreen;
     public GameObject settingsScreen;
     public GameObject infoScreen;
+    public SoundManager soundManager;
 
     public void GoToMainMenu()
     {
@@ -52,11 +54,9 @@ public class ScreenManager : MonoBehaviour
         mainMenuScreen.SetActive(true);
     }
 
-    public void SelectPlague() {
-        if (!openingScreen.activeSelf && !settingsScreen.activeSelf) {
-            // Le GameObject n'est pas actif
-            Debug.Log("Plague selected !");
-        }
+    public void GoToFight() {
+        soundManager.SwitchBool();
+        SceneManager.LoadScene("Rui");
     }
 
 }

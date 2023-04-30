@@ -21,6 +21,9 @@ public class LevelGenerator : SerializedMonoBehaviour
     public GameObject doctorPrefab;
     public GameObject plaguePrefab;
     public GameObject villagePrefab;
+    public GameObject villagePrefab2;
+    public GameObject villagePrefab3;
+    public GameObject villagePrefab4;
 
     public List<GameObject> listPills;
     public List<GameObject> listVillagers;
@@ -186,7 +189,16 @@ public class LevelGenerator : SerializedMonoBehaviour
                 {
                     Vector3 newPosition = new Vector3(newPoint.x, newPoint.y, 0);
 
-                    GameObject newVillager = Instantiate(villagePrefab, newPosition, Quaternion.identity);
+                    GameObject newVillager = null; // = Instantiate(villagePrefab, newPosition, Quaternion.identity);
+                    int i = Random.Range(0, 4);
+                    if (i == 0)
+                        newVillager = Instantiate(villagePrefab, newPosition, Quaternion.identity);
+                    else if (i == 1)
+                        newVillager = Instantiate(villagePrefab2, newPosition, Quaternion.identity);
+                    else if (i == 2)
+                        newVillager = Instantiate(villagePrefab3, newPosition, Quaternion.identity);
+                    else if (i == 3)
+                        newVillager = Instantiate(villagePrefab4, newPosition, Quaternion.identity);
                     VillagerAI villagerAI = newVillager.GetComponent<VillagerAI>();
                     villagerAI.mainCamera = mainCamera;
 

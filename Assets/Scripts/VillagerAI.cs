@@ -28,13 +28,22 @@ public class VillagerAI : MonoBehaviour
     public float Speed { get => speed; set => speed = value; }
     private float stunCouldown = 0f;
 
+    public Material shadow;
 
+    public float initialShadowDist=0.2f;
 
+    float dist = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         randomFrequence = Random.Range(0,500);
+
+         shadow.SetFloat("_VisibleDistance",initialShadowDist);
+    }
+
+    private void OnDestroy() {
+        shadow.SetFloat("_VisibleDistance",initialShadowDist);
     }
 
     // Update is called once per frame
@@ -70,19 +79,32 @@ public class VillagerAI : MonoBehaviour
 
                 gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
                 deathByPlague += Time.deltaTime;
-                mainCamera.orthographicSize+=Time.deltaTime/50;
-
+                mainCamera.orthographicSize+=Time.deltaTime / 50;
+                //  reduce shadow
+                dist = shadow.GetFloat("_VisibleDistance");
+                if (dist < 1.0f)
+                {
+                    dist += Time.deltaTime/30;
+                    shadow.SetFloat("_VisibleDistance",dist);
+                } 
+                    
                 if(deathByPlague > 5f) {
                     dead = true;
                     speed = speed/10f;
                 }
             }else {
-                gameObject.GetComponent<Renderer>().material.color = new Color(0, 200, 0);
                 if(deathByPlague > 0f) {
                     deathByPlague-= Time.deltaTime*2;
                     mainCamera.orthographicSize-=Time.deltaTime/50*2;
+                    //  increase shadow
+                    dist = shadow.GetFloat("_VisibleDistance");
+                    if (dist > .2f)
+                    {
+                        dist -= Time.deltaTime/10;
+                        shadow.SetFloat("_VisibleDistance", dist);
+                    } 
+                       
                 }else if(PV < 500f) {
-                    gameObject.GetComponent<Renderer>().material.color = new Color(100, 255, 100);
                     PV+=10;
                 }
             }
@@ -91,6 +113,12 @@ public class VillagerAI : MonoBehaviour
             if(deathByPlague > 0f) {
                 deathByPlague-= Time.deltaTime*2;
                 mainCamera.orthographicSize-=Time.deltaTime/50*2;
+                dist = shadow.GetFloat("_VisibleDistance");
+                if (dist > .2f)
+                {
+                    dist -= Time.deltaTime/10;
+                    shadow.SetFloat("_VisibleDistance", dist);
+                } 
             } else {
                 dead = false;
             }
