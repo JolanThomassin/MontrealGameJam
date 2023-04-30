@@ -9,7 +9,10 @@ namespace Assets.Prefabs.Projectile
         public Transform player;
         public float cooldown = 1f;
         public float timer = 0.5f;
-        
+
+        public bool shootFacing = false;
+        public bool shootMouse = true;
+
         Vector3 rotation = new Vector3(0,0,0);
 
         [SerializeField]
@@ -25,6 +28,8 @@ namespace Assets.Prefabs.Projectile
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
+            Vector2 movement = new Vector2(horizontal, vertical);
+
             if (vertical > 0)
             {
                 bullet.setDirection(new Vector3(0, bulletSpeed, 0));
@@ -49,10 +54,29 @@ namespace Assets.Prefabs.Projectile
 
             if (Input.GetKeyDown(KeyCode.Space) && timer > cooldown)
             {
+                var shootDirection = Input.mousePosition;
+                shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+                shootDirection = (shootDirection - transform.position);
+              
+                shootDirection.Normalize();
                 timer = 0f;
                 var bullet1 = Instantiate(bullet, player.transform.position, player.transform.rotation);
-                bullet1.transform.rotation = Quaternion.Euler(rotation);
-                bullet1.setDirection(bullet.direction);
+               // bullet1.transform.rotation = Quaternion.Euler(rotation);
+                // bullet1.setDirection(bullet.direction);
+                //var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(Quaternion.LookRotation(Vector3.forward, movement))* player.transform.up;
+                var dir = player.transform.worldToLocalMatrix * Matrix4x4.Rotate(player.transform.rotation) * player.transform.up;
+                if (shootFacing)
+                {
+                    bullet1.transform.rotation = Quaternion.Euler(rotation);
+                    bullet1.setDirection(dir);
+                }
+                else if (shootMouse)
+                {
+                    bullet1.setDirection(shootDirection);
+                    bullet1.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+                    bullet1.transform.rotation *= Quaternion.LookRotation(Vector3.forward, shootDirection);
+                }
+                   
             }
         }
     }
