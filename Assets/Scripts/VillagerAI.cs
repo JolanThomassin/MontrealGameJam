@@ -31,6 +31,7 @@ public class VillagerAI : MonoBehaviour
     public Material shadow;
 
     public float initialShadowDist=0.2f;
+    static float shadowAccum = 0;
 
     float dist = 0.2f;
     // Start is called before the first frame update
@@ -43,7 +44,7 @@ public class VillagerAI : MonoBehaviour
     }
 
     private void OnDestroy() {
-        shadow.SetFloat("_VisibleDistance",initialShadowDist);
+        // shadow.SetFloat("_VisibleDistance",initialShadowDist);
     }
 
     // Update is called once per frame
@@ -77,7 +78,7 @@ public class VillagerAI : MonoBehaviour
         if(!dead) {
             if(plegued) {
 
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0);
                 deathByPlague += Time.deltaTime;
                 mainCamera.orthographicSize+=Time.deltaTime / 50;
                 //  reduce shadow
@@ -90,7 +91,9 @@ public class VillagerAI : MonoBehaviour
                     
                 if(deathByPlague > 5f) {
                     dead = true;
+                    shadowAccum += 0.02f;
                     speed = speed/10f;
+                    Debug.Log("dead");
                 }
             }else {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
@@ -100,7 +103,7 @@ public class VillagerAI : MonoBehaviour
                     mainCamera.orthographicSize-=Time.deltaTime/50*2;
                     //  increase shadow
                     dist = shadow.GetFloat("_VisibleDistance");
-                    if (dist > .2f)
+                    if (dist > (.2f + shadowAccum))
                     {
                         dist -= Time.deltaTime/10;
                         shadow.SetFloat("_VisibleDistance", dist);
@@ -116,7 +119,7 @@ public class VillagerAI : MonoBehaviour
                 deathByPlague-= Time.deltaTime*2;
                 mainCamera.orthographicSize-=Time.deltaTime/50*2;
                 dist = shadow.GetFloat("_VisibleDistance");
-                if (dist > .2f)
+                if (dist > (.2f + shadowAccum))
                 {
                     dist -= Time.deltaTime/10;
                     shadow.SetFloat("_VisibleDistance", dist);
@@ -125,6 +128,10 @@ public class VillagerAI : MonoBehaviour
                 dead = false;
             }
             reanimation = false;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
         }
         
 

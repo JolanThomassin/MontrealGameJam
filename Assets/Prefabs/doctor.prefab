@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4030423077390286501}
   - component: {fileID: 7941790669942753504}
   - component: {fileID: -793824682005345342}
+  - component: {fileID: 4192592499524296230}
   m_Layer: 6
   m_Name: doctor
   m_TagString: Doctor
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -922953311
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 238f861df46e6fe418a79705ce08ccac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72cc603e0fec2484ebdc8c132f10687a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +123,6 @@ MonoBehaviour:
   isTrapped: 0
   isDied: 0
   HPText: {fileID: 8871344008334192582, guid: 871786f515037184da6bfd5a5a1e0479, type: 3}
-  gameOverWin: {fileID: 8520137068646094203, guid: 22e01d3c7c2654442bd0d64caf0da150, type: 3}
 --- !u!50 &4030423077390286501
 Rigidbody2D:
   serializedVersion: 4
@@ -179,3 +179,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4192592499524296230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491594481325821317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c2523075945e446b1fb6f926edbdc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 0}
+  speed: 0.5

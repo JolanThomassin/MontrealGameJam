@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,6 +128,7 @@ MonoBehaviour:
   isTrapped: 0
   mainCamera: {fileID: 8548740069639779292, guid: 8f2ce97a98d79fc4f911c04cbe7a9615, type: 3}
   shadow: {fileID: 2100000, guid: ee404156a1bb9e146b1963665cae03f0, type: 2}
+  initialShadowDist: 0.2
 --- !u!58 &6775680913954311788
 CircleCollider2D:
   m_ObjectHideFlags: 0

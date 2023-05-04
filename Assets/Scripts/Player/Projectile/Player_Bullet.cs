@@ -46,22 +46,15 @@ public class Player_Bullet : Bullet
     /// <param name="collision"></param>
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Monster" || collision.gameObject.tag == "Ground")
-        //{
-        //    if (collision.gameObject.tag == "Monster") {
-        //       // if (collision.gameObject.GetComponent<Character>().isInvincible) {
-        //            Debug.Log("monster dodged");
-        //       //     return;
-        //   // }
-        //    }
-        //    stop();  // stop the motion of bullet when hits a monster
-        //}
-        //if (collision.gameObject.tag != "Player")
-        //    stop();
         if (collision.gameObject.tag == "Wall")
         {
             stop();
         }
+        if (collision.gameObject.tag == "Doctor")
+        {
+            collision.gameObject.GetComponent<DoctorAI>().PV -= damage;
+            stop();
+        }    
     }
 
 
